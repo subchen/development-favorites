@@ -1,10 +1,11 @@
-set encoding=utf-8
-set number
 filetype on
-set background=light
 syntax on
+
+set encoding=utf-8
+set background=light
 set tabstop=4
 set shiftwidth=4
+set number
 set expandtab
 set showmatch
 set ruler
