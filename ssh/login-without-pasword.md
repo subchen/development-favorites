@@ -7,7 +7,7 @@
 ####步骤1: 用 `ssh-key-gen` 在本地主机上创建公钥和密钥
 
 ```bash
-$ ssh-keygen -t  rsa
+$ ssh-keygen -t rsa
 Enter file in which to save the key (/home/sub/.ssh/id_rsa):[Enter key] 
 Enter passphrase (empty for no passphrase): [Press enter key]
 Enter same passphrase again: [Pess enter key]
