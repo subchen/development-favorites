@@ -1,8 +1,8 @@
-使用下例中`ssky-keygen`和`ssh-copy-id`，仅需通过3个步骤的简单设置而无需输入密码就能登录远程Linux主机。 
+使用下例中`ssh-keygen`和`ssh-copy-id`，仅需通过3个步骤的简单设置而无需输入密码就能登录远程Linux主机。 
 
-* ssh-keygen 创建公钥和密钥。 
-* ssh-copy-id 把本地主机的公钥复制到远程主机的authorized_keys文件上。
-* ssh-copy-id 也会给远程主机的用户主目录（home）和~/.ssh, 和~/.ssh/authorized_keys设置合适的权限 。
+* `ssh-keygen` 创建公钥和密钥。 
+* `ssh-copy-id` 把本地主机的公钥复制到远程主机的`authorized_keys`文件上。
+* `ssh-copy-id` 也会给远程主机的用户主目录（home）和`~/.ssh`, 和`~/.ssh/authorized_keys`设置合适的权限 。
 
 ####步骤1: 用 `ssh-key-gen` 在本地主机上创建公钥和密钥
 
@@ -29,7 +29,7 @@ Now try logging into the machine, with "ssh 'root@10.79.53.164'", and check in:
 to make sure we haven't added extra keys that you weren't expecting.
 
 ```
-> 注: ssh-copy-id 把公钥分发即追加到远程主机的 .ssh/authorized_key 上.
+> 注: `ssh-copy-id` 把公钥分发即追加到远程主机的 `.ssh/authorized_key` 上.
 
 ####步骤3: 直接登录远程主机
 
