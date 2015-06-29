@@ -19,6 +19,9 @@ install others
 ```
 brew install git
 brew install node
+brew install wget
+brew install openssl
+brew install ssh-copy-id
 
 brew cask install java
 brew cask install qq
