@@ -27,4 +27,5 @@ brew cask install java
 brew cask install qq
 brew cask install google-chrome
 brew cask install evernote
+brew cask install atom
 ```
