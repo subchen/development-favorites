@@ -1,7 +1,7 @@
-<svg version="1.2" xmlns="http://www.w3.org/2000/svg">
-    <g fill="none" stroke-width="2" stroke-linejoin="miter" transform="scale(3)" >
-        <path d="M 13 3 V 1 H 1 V 13 H 8" stroke="#1D6A8C" />
-        <path d="M 13 4 V 13 H 9" stroke="#F98149"/>
-        <path d="M 10 5 V 10 H 5 M 8 7 V 11" stroke="#1D6A8C"/>
+<svg width="140" height="140" version="1.2" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke-width="2" stroke-linejoin="miter" transform="scale(10)">
+        <path d="M 13 3 V 1 H 1 V 13 H 8" stroke="#1D6A8C"></path>
+        <path d="M 13 4 V 13 H 9" stroke="#F98149"></path>
+        <path d="M 10 5 V 10 H 5 M 8 7 V 11" stroke="#1D6A8C"></path>
     </g>
 </svg>
