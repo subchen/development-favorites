@@ -29,6 +29,7 @@ require.config({
         'lodash': '../node_modules/lodash/index',
         'jquery': '../node_modules/jquery/dist/jquery.min',
         'angular': '../node_modules/angular/angular.min',
+        'angular-ui-router': '../node_modules/angular-ui-router/release/angular-ui-router.min',
         'angular-mocks': '../node_modules/angular-mocks/angular-mocks',
         'chai': '../node_modules/chai/chai',
         'sinon': '../node_modules/sinon/pkg/sinon'
@@ -36,6 +37,7 @@ require.config({
     shim: {
         'lodash': {exports: '_'},
         'angular': {exports: 'angular', deps: ['jquery']},
+        'angular-ui-router': {deps: ['angular']},
         'angular-mocks': {exports: 'angular.mock', deps: ['angular']}
     }
 });
@@ -52,6 +54,7 @@ module.exports = function (config) {
             { pattern : 'node_modules/lodash/index.js', included: false, watched: false },
             { pattern : 'node_modules/jquery/dist/jquery.min.js', included: false, watched: false },
             { pattern : 'node_modules/angular/angular.min.js', included: false, watched: false },
+            { pattern : 'node_modules/angular-ui-router/release/angular-ui-router.min.js', included: false, watched: false },
             { pattern : 'node_modules/angular-mocks/angular-mocks.js', included: false, watched: false },
             { pattern : 'node_modules/chai/chai.js', included: false, watched: false },
             { pattern : 'node_modules/sinon/pkg/sinon.js', included: false, watched: false },
