@@ -24,13 +24,14 @@
 
 ```js
 require.config({
+    baseUrl: '/base/src',
     paths: {
-        'lodash': 'node_modules/lodash/index',
-        'jquery': 'node_modules/jquery/dist/jquery.min',
-        'angular': 'node_modules/angular/angular.min',
-        'angular-mocks': 'node_modules/angular-mocks/angular-mocks',
-        'chai': 'node_modules/chai/chai',
-        'sinon': 'node_modules/sinon/pkg/sinon',
+        'lodash': '../node_modules/lodash/index',
+        'jquery': '../node_modules/jquery/dist/jquery.min',
+        'angular': '../node_modules/angular/angular.min',
+        'angular-mocks': '../node_modules/angular-mocks/angular-mocks',
+        'chai': '../node_modules/chai/chai',
+        'sinon': '../node_modules/sinon/pkg/sinon'
     },
     shim: {
         'lodash': {exports: '_'},
@@ -48,12 +49,12 @@ module.exports = function (config) {
         basePath: '',
         frameworks: ['mocha', 'requirejs'],
         files: [
-            { pattern : 'node_modules/lodash/index', included: false, watched: false },
-            { pattern : 'node_modules/jquery/dist/jquery.min', included: false, watched: false },
-            { pattern : 'node_modules/angular/angular.min', included: false, watched: false },
-            { pattern : 'node_modules/angular-mocks/angular-mocks', included: false, watched: false },
-            { pattern : 'node_modules/chai/chai', included: false, watched: false },
-            { pattern : 'node_modules/sinon/pkg/sinon', included: false, watched: false },
+            { pattern : 'node_modules/lodash/index.js', included: false, watched: false },
+            { pattern : 'node_modules/jquery/dist/jquery.min.js', included: false, watched: false },
+            { pattern : 'node_modules/angular/angular.min.js', included: false, watched: false },
+            { pattern : 'node_modules/angular-mocks/angular-mocks.js', included: false, watched: false },
+            { pattern : 'node_modules/chai/chai.js', included: false, watched: false },
+            { pattern : 'node_modules/sinon/pkg/sinon.js', included: false, watched: false },
             
             { pattern: 'src/**/*.js', included: false },
             { pattern: 'test/**/*.js', included: false },
