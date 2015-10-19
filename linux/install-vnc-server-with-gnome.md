@@ -19,6 +19,8 @@ xsetroot -solid grey
 vncconfig -iconic &
 gnome-session &
 EOF
+
+chmod +x ~/.vnc/xstartup
 ```
 
 # Set Password
