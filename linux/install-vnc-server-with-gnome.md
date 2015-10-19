@@ -9,7 +9,7 @@ yum install tigervnc-server
 ```bash
 mkdir ~/.vnc
 
-cat >> ~/.vnc/xstartup << EOF
+cat > ~/.vnc/xstartup << EOF
 #!/bin/sh
 unset SESSION_MANAGER
 exec /etc/X11/xinit/xinitrc
@@ -33,5 +33,11 @@ vncpasswd
 
 ```bash
 vncserver
+```
+
+# Stop Session
+
+```bash
+vncserver -kill :1
 ```
 
