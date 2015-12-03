@@ -1,4 +1,4 @@
-## 1. Creata a openssl.cnf
+## 1. 创建 openssl.cnf
 
 ```
 [ ca ]
@@ -52,15 +52,15 @@ keyUsage = keyEncipherment
 basicConstraints = CA:false
 keyUsage = digitalSignature
 ```
-## 2. Create dir and files
+## 2. 创建必要的文件和目录
 
-```
+```bash
 mkdir certs
 touch index.txt
 echo 01 > serial
 ```
 
-## 3. 创建自己的CA机构
+## 3. 创建自己的 CA 机构
 
 ```
 openssl req -x509 -config openssl.cnf -newkey rsa:2048 -keyout ca-key.pem -days 3650 -out ca-cert.pem -nodes -subj /CN=SubchenCA/
@@ -69,9 +69,9 @@ openssl x509 -in ca-cert.pem -out ca-cert.cer -outform DER
 
 ## 4. 创建服务器端证书
 
-```
+```bash
 openssl genrsa -out server-key.pem 2048
-openssl req -new -key server-key.pem -out server-req.pem -nodes -subj /CN=sensu/O=server/
+openssl req -new -key server-key.pem -out server-req.pem -nodes -subj /CN=subchen/O=server/
 openssl ca -config openssl.cnf -in server-req.pem -out server-cert.pem -batch -extensions server_ca_extensions
 
 // 将证书打包
@@ -82,7 +82,7 @@ openssl pkcs12 -export -out server-cert.p12 -in server-cert.pem -inkey server-ke
 
 ```
 openssl genrsa -out client-key.pem 2048
-openssl req -new -key client-key.pem -out client-req.pem -nodes -subj /CN=sensu/O=client/
+openssl req -new -key client-key.pem -out client-req.pem -nodes -subj /CN=subchen/O=client/
 openssl ca -config openssl.cnf -in client-req.pem -out client-cert.pem -batch -extensions client_ca_extensions
 openssl pkcs12 -export -out client-cert.p12 -in client-cert.pem -inkey client-key.pem -certfile ca-cert.pem -passout pass:secret
 ```
@@ -91,7 +91,7 @@ openssl pkcs12 -export -out client-cert.p12 -in client-cert.pem -inkey client-ke
 
 Check certs info
 
-```
+```bash
 openssl x509 -noout -text -in ca-cert.pem
 openssl x509 -noout -text -in server-cert.pem
 openssl x509 -noout -text -in client-cert.pem
@@ -99,7 +99,7 @@ openssl x509 -noout -text -in client-cert.pem
 
 Check keys and certificates with OpenSSL
 
-```
+```bash
 // In one terminal window execute the following command:
 openssl s_server -accept 8443 -cert server-cert.pem -key server-key.pem -CAfile ca-cert.pem
 
@@ -108,6 +108,7 @@ openssl s_client -connect localhost:8443 -cert client-cert.pem -key client-key.p
 ```
 
 If the certificates and keys have been correctly created, an SSL connection establishment sequence will appear and the terminals will be linked. Input from either terminal will appear on the other. If the trust chain could be established, the second terminal will display this confirmation:
+
 ```
 Verify return code: 0 (ok)
 ```
@@ -116,7 +117,7 @@ If you receive an error, confirm that the certificates and keys were generated c
 
 ## 7. Usage on NodeJS
 
-Server
+**Server**
 
 ```js
 var https = require('https');  
@@ -140,7 +141,7 @@ https.createServer(options, function(req, res){
 }).listen(3000,'127.0.0.1');  
 ```
 
-Client
+**Client**
 
 ```js
 var https = require('https');  
