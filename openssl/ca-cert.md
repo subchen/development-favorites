@@ -64,6 +64,8 @@ echo 01 > serial
 
 ```
 openssl req -x509 -config openssl.cnf -newkey rsa:2048 -keyout ca-key.pem -days 3650 -out ca-cert.pem -nodes -subj /CN=SubchenCA/
+
+// 如果需要，可以生成 cer 格式证书
 openssl x509 -in ca-cert.pem -out ca-cert.cer -outform DER
 ```
 
@@ -84,6 +86,8 @@ openssl pkcs12 -export -out server-cert.p12 -in server-cert.pem -inkey server-ke
 openssl genrsa -out client-key.pem 2048
 openssl req -new -key client-key.pem -out client-req.pem -nodes -subj /CN=subchen/O=client/
 openssl ca -config openssl.cnf -in client-req.pem -out client-cert.pem -batch -extensions client_ca_extensions
+
+// 将证书打包
 openssl pkcs12 -export -out client-cert.p12 -in client-cert.pem -inkey client-key.pem -certfile ca-cert.pem -passout pass:secret
 ```
 
