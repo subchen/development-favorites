@@ -56,7 +56,7 @@ keyUsage = digitalSignature
 
 ```bash
 mkdir certs
-touch index.txt
+echo /dev/null > index.txt
 echo 01 > serial
 ```
 
