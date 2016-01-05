@@ -38,7 +38,6 @@ cat > ~/.gitconfig << EOF
     default = simple
 [user]
     name = Guoqiang Chen
-    email = guoqiche@cisco.com
 [color]
     ui = true
 EOF
