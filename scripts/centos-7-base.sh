@@ -38,12 +38,13 @@ cat > ~/.gitconfig << EOF
     default = simple
 [user]
     name = Guoqiang Chen
+    email = subchen@gmail.com
 [color]
     ui = true
 EOF
 
 
-cat > /etc/bashrc << EOF
+cat >> /etc/bashrc << EOF
 # load user definitions
 for f in /etc/bashrc.d/*.sh; do
     [ -r "$f" ] && . "$f"
