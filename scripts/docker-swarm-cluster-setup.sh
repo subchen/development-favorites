@@ -43,8 +43,8 @@ for SLAVE in $SWARM_SLAVES; do
     --generic-ip-address=$SLAVE \
     --generic-ssh-user=root \
     --swarm \
-      --swarm-discovery="etcd://$ETCD_IP:2379" \
-      --engine-opt="cluster-store=etcd://$ETCD_IP:2379" \
-      --engine-opt="cluster-advertise=$IFACE_NAME:2376" \
-      swarm-slave-$INDEX
+    --swarm-discovery="etcd://$ETCD_IP:2379" \
+    --engine-opt="cluster-store=etcd://$ETCD_IP:2379" \
+    --engine-opt="cluster-advertise=$IFACE_NAME:2376" \
+    swarm-slave-$INDEX
 done
