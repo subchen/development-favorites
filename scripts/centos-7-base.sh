@@ -9,6 +9,15 @@ fi
 
 yum install -y git vim zip unzip tree net-tools psmisc bind-utils
 
+systemctl disable iptables-services firewalld
+
+setenforce 0
+cat > /etc/sysconfig/selinux << EOF
+SELINUX=disabled
+SELINUXTYPE=targeted
+EOF
+
+
 cat > ~/.vimrc << EOF
 filetype on
 syntax on
