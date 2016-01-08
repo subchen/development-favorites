@@ -8,6 +8,7 @@ curl -fSL https://github.com/coreos/etcd/releases/download/v${ETCD_VERSION}/etcd
   && mv /tmp/etcd/etcd* /usr/bin \
   && rm -rf etcd.tar.gz /tmp/etcd
 
+mkdir -p /etc/etcd 
 mkdir -p /var/lib/etcd
 
 cat > /etc/systemd/system/multi-user.target.wants/etcd.service << EOF
@@ -16,8 +17,9 @@ Description=Etcd Server
 After=network.target
 
 [Service]
-EnvironmentFile=-/etc/etcd/etcd.conf
-ExecStart=/usr/bin/etcd --name=default --data-dir=/var/lib/etcd/default.etcd --listen-client-urls="http://0.0.0.0:2379" --listen-peer-urls="http://0.0.0.0:2380"
+Type=notify
+EnvironmentFile=/etc/etcd/etcd.conf
+ExecStart=/usr/bin/etcd
 Restart=on-failure
 LimitNOFILE=65536
 
@@ -25,4 +27,16 @@ LimitNOFILE=65536
 WantedBy=multi-user.target
 EOF
 
-system daemon-reload
+systemctl daemon-reload
+
+LOCAL_PUBLIC_IP=$(hostname --all-ip-addresses | cut -d ' ' -f 1)
+
+cat > /etc/etcd/etcd.conf << EOF
+ETCD_NAME=default
+ETCD_DATA_DIR="/var/lib/etcd/default.etcd"
+ETCD_LISTEN_PEER_URLS="http://0.0.0.0:2380"
+ETCD_LISTEN_CLIENT_URLS="http://0.0.0.0:2379"
+ETCD_ADVERTISE_CLIENT_URLS="http://$LOCAL_PUBLIC_IP:2379"
+EOF
+
+
