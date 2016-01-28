@@ -14,10 +14,13 @@ After=network.target
 [Service]
 EnvironmentFile=/etc/sysconfig/docker
 ExecStart=/usr/bin/docker daemon -H unix:///var/run/docker.sock \$DOCKER_OPTS
+Type=notify
 MountFlags=slave
 LimitNOFILE=1048576
 LimitNPROC=1048576
 LimitCORE=infinity
+TasksMax=1048576
+TimeoutStartSec=0
 
 [Install]
 WantedBy=multi-user.target
