@@ -1,4 +1,6 @@
-url https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+#!/bin.sh
+
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
 
 cat >> ~/.bashrc << EOF
 source ~/.git-prompt.sh
