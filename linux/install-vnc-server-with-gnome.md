@@ -18,6 +18,7 @@ exec /etc/X11/xinit/xinitrc
 xsetroot -solid grey
 vncconfig -iconic &
 gnome-session &
+# startkde
 EOF
 
 chmod +x ~/.vnc/xstartup
