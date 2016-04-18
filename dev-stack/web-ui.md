@@ -1,7 +1,7 @@
 # JavaScript
 
 * Image Cropper
-  * [Image Cropper](https://github.com/fengyuanchen/cropperjs)
+  * [jQuery Image Cropper](https://github.com/fengyuanchen/cropperjs)
 
 * Clipboard
   * [Clipboard.js](https://github.com/zenorocha/clipboard.js/)
