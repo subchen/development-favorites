@@ -2,7 +2,7 @@
 
 set -e
 
-curl ftp://10.74.61.154/pub/guoqiche/binaries/dnsdock-1.12.0 -o /usr/bin/dnsdock
+curl https://raw.githubusercontent.com/subchen/development-favorites/master/binaries/dnsdock/dnsdock-1.12.0 -o /usr/bin/dnsdock
 chmod +x /usr/bin/dnsdock
 
 cat > /etc/systemd/system/multi-user.target.wants/dnsdock.service << EOF
