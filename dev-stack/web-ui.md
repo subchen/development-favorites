@@ -1,5 +1,9 @@
 # JavaScript
 
+* Form Input
+ * [Selectize.js](https://github.com/selectize/selectize.js)
+ * [Select2](https://github.com/select2/select2)
+
 * Syntax Highlight
   * [Highlight.js](https://github.com/isagalaev/highlight.js)
   * [SyntaxHighlighter](https://github.com/syntaxhighlighter/syntaxhighlighter)
