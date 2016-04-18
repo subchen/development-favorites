@@ -19,7 +19,8 @@ sudo ln -sf ${JDK_HOME} /usr/lib/jvm/jdk \
 && sudo ln -sf /usr/lib/jvm/jdk/bin/javadoc /usr/bin/javadoc \
 && sudo ln -sf /usr/lib/jvm/jdk/bin/jps /usr/bin/jps \
 && sudo ln -sf /usr/lib/jvm/jdk/bin/jstack /usr/bin/jstack \
-&& sudo ln -sf /usr/lib/jvm/jdk/bin/jmap /usr/bin/jmap
+&& sudo ln -sf /usr/lib/jvm/jdk/bin/jmap /usr/bin/jmap \
+&& sudo ln -sf /usr/lib/jvm/jdk/bin/keytool /usr/bin/keytool
 
 
 MAVEN_VERSION=3.3.9
