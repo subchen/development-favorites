@@ -4,6 +4,12 @@
  * [Selectize.js](https://github.com/selectize/selectize.js)
  * [Select2](https://github.com/select2/select2)
 
+* Templates
+  * [handlerbars.hs](https://github.com/wycats/handlebars.js/)
+  * [hogan.js](https://github.com/twitter/hogan.js)
+  * [mustache.js](https://github.com/janl/mustache.js)
+  * [artTemplate](https://github.com/aui/artTemplate)
+
 * Syntax Highlight
   * [Highlight.js](https://github.com/isagalaev/highlight.js)
   * [SyntaxHighlighter](https://github.com/syntaxhighlighter/syntaxhighlighter)
