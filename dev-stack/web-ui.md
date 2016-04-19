@@ -5,7 +5,7 @@
  * [Select2](https://github.com/select2/select2)
 
 * Templates
-  * [handlerbars.hs](https://github.com/wycats/handlebars.js/)
+  * [handlerbars.js](https://github.com/wycats/handlebars.js)
   * [hogan.js](https://github.com/twitter/hogan.js)
   * [mustache.js](https://github.com/janl/mustache.js)
   * [artTemplate](https://github.com/aui/artTemplate)
@@ -29,7 +29,7 @@
   * [Jcrop](https://github.com/tapmodo/Jcrop)
 
 * Clipboard
-  * [Clipboard.js](https://github.com/zenorocha/clipboard.js/)
+  * [Clipboard.js](https://github.com/zenorocha/clipboard.js)
   * [ZeroClipboard](https://github.com/zeroclipboard/zeroclipboard)
 
 
