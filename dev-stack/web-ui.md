@@ -32,6 +32,17 @@
   * [Clipboard.js](https://github.com/zenorocha/clipboard.js)
   * [ZeroClipboard](https://github.com/zeroclipboard/zeroclipboard)
 
+# CSS
+
+* Bootstrap Theme
+  * [Smart Admin](https://wrapbootstrap.com/theme/smartadmin-responsive-webapp-WB0573SK0)
+
+* Fonts
+  * [Font Awesome](http://fontawesome.io/)
+
+* Icon
+  * [Loadings.css](https://connoratherton.com/loaders) 
+  * [SVG Animal](https://thenounproject.com/grrrauf/collection/origami-animals/)
 
 # Angular.JS
 
