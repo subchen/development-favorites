@@ -31,6 +31,9 @@
 * Clipboard
   * [Clipboard.js](https://github.com/zenorocha/clipboard.js)
   * [ZeroClipboard](https://github.com/zeroclipboard/zeroclipboard)
+ 
+* Loading
+  * [PACE.js](https://github.com/HubSpot/PACE)
 
 # CSS
 
