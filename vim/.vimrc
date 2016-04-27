@@ -19,17 +19,11 @@ set showmode
 set smartcase
 set imcmdline
 
-set guioptions+=m
-set guioptions+=T
-"set showtabline=2
+" highlight current line
+set cursorline
+hi CursorLine cterm=NONE ctermbg=brown ctermfg=black
 
-:nn <M-1> 1gt
-:nn <M-2> 2gt
-:nn <M-3> 3gt
-:nn <M-4> 4gt
-:nn <M-5> 5gt
-:nn <M-6> 6gt
-:nn <M-7> 7gt
-:nn <M-8> 8gt
-:nn <M-9> 9gt
-:nn <M-0> :tablast<CR>
+" highlight trailing whitespace
+hi TrailingWhitespace ctermbg=red
+match TrailingWhitespace /\s\+$/
+
