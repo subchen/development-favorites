@@ -38,8 +38,14 @@ set showfulltag
 set showmode
 set smartcase
 set imcmdline
+
+" highlight current line
 set cursorline
 hi CursorLine cterm=NONE ctermbg=brown ctermfg=black
+
+" highlight trailing whitespace
+hi TrailingWhitespace ctermbg=red
+match TrailingWhitespace /\s\+$/
 EOF
 
 cat > ~/.gitconfig << EOF
@@ -52,20 +58,3 @@ cat > ~/.gitconfig << EOF
     ui = true
 EOF
 
-
-cat >> /etc/bashrc << EOF
-# load user definitions
-for f in /etc/bashrc.d/*.sh; do
-    [ -r "$f" ] && . "$f"
-done
-EOF
-
-mkdir -p /etc/bashrc.d/
-
-cat > /etc/bashrc.d/alias.sh << EOF
-alias ll="ls -l --color"
-alias grep="/usr/bin/grep -n --color"
-EOF
-
-# take effect right now
-. /etc/bashrc.d/alias.sh
