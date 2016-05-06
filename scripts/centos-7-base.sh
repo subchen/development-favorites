@@ -62,6 +62,8 @@ cat > ~/.gitconfig << EOF
 EOF
 
 
+curl -fSL https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+
 cat >> ~/.bashrc << EOF
 # git branch on bash prompt
 source ~/.git-prompt.sh
