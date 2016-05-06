@@ -39,6 +39,9 @@ set showmode
 set smartcase
 set imcmdline
 
+" no auto comments on next line
+set formatoptions-=c formatoptions-=r formatoptions-=o
+
 " highlight current line
 set cursorline
 hi CursorLine cterm=NONE ctermbg=brown ctermfg=black
@@ -57,4 +60,14 @@ cat > ~/.gitconfig << EOF
 [color]
     ui = true
 EOF
+
+
+cat >> ~/.bashrc << EOF
+# git branch on bash prompt
+source ~/.git-prompt.sh
+export GIT_PS1_SHOWDIRTYSTATE=1
+export PS1='[\\u@\\h \\w]\\e[1;35m\$(__git_ps1)\\e[m# '
+EOF
+
+source ~/.bashrc
 
