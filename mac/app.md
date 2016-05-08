@@ -2,6 +2,8 @@
 
 * Commons
   * QQ
+  * Chrome
+  * Youdao 词典
   * Sogou Pinyin - 输入法
   * Evernote - 最好的笔记
   * iTerm - 更好用的终端
