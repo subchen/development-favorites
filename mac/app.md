@@ -2,7 +2,8 @@
 
 * Commons
   * QQ
-  * Sogou Pinyin 
+  * Sogou Pinyin - 输入法
+  * Evernote - 最好的笔记
   * iTerm - 更好用的终端
   * Scroll Reverser - 单独配置鼠标和触摸板滚动方向
   * 爱壁纸HD - 自动换壁纸
