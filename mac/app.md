@@ -24,4 +24,5 @@
 * Dev
   * JD-GUI - JAVA 反编译 GUI
   * Balsamiq Mockups - 最好用的 Mockup 工具
+  * CHM View Free - 查看 CHM 帮助文档
 
