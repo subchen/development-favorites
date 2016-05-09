@@ -17,6 +17,10 @@ SELINUX=disabled
 SELINUXTYPE=targeted
 EOF
 
+cat >> /etc/environment << EOF
+LANG=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+EOF
 
 cat > ~/.vimrc << EOF
 filetype on
