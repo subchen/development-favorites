@@ -21,7 +21,7 @@ gpgcheck=0
 
 [aliyun-7-plus]
 name=aliyun-7-plus
-baseurl=http://mirrors.aliyun.com/centos/7/aliyunplus/x86_64/
+baseurl=http://mirrors.aliyun.com/centos/7/centosplus/x86_64/
 enabled=1
 gpgcheck=0
 EOF
