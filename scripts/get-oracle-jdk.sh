@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 JDK_VERSION=8u73
 JDK_VERSION_PATCH=b02
 JDK_HOME=/usr/share/java/jdk-${JDK_VERSION}
