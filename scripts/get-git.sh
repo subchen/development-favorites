@@ -1,5 +1,7 @@
 #!/bin/sh
 
+yum install -y git
+
 cat > ~/.gitconfig << EOF
 [push]
     default = simple
