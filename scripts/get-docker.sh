@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 curl -fSL https://get.docker.com/builds/Linux/x86_64/docker-1.11.1.tgz -o /tmp/docker.tgz
 tar -zxvf /tmp/docker.tgz --strip-components=1 -C /usr/bin/
 
