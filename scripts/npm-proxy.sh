@@ -1,11 +1,11 @@
 #!/bin/bash
 
-cat > /usr/bin/npm-tb << EOF
+cat > /usr/bin/npm-taobao << EOF
 #!/bin/bash
 exec npm --registry=https://registry.npm.taobao.org \$*
 EOF
 
-chmod +x /usr/bin/npm-tb
+chmod +x /usr/bin/npm-taobao
 
 cat > /usr/bin/npm-cn << EOF
 #!/bin/bash
