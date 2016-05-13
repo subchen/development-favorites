@@ -28,7 +28,7 @@ EOF
 
 cat > /usr/bin/yum-aliyun << EOF
 #!/bin/sh
-exec yum --disablerepo=* --enablerepo=aliyun-7-* \$*
+exec yum --disablerepo=* --enablerepo=aliyun-7-* "\$@"
 EOF
 
 chmod +x /usr/bin/yum-aliyun
