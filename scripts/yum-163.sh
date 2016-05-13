@@ -28,7 +28,7 @@ EOF
 
 cat > /usr/bin/yum-163 << EOF
 #!/bin/sh
-exec yum --disablerepo=* --enablerepo=netease-7-* \$*
+exec yum --disablerepo=* --enablerepo=netease-7-* "\$@"
 EOF
 
 chmod +x /usr/bin/yum-163
