@@ -49,4 +49,5 @@
 
 # Angular.JS
 
-  [angular-ui](http://angular-ui.github.io/)
+* [angular-ui](http://angular-ui.github.io/)
+* [angular-async-loader](https://github.com/subchen/angular-async-loader)
