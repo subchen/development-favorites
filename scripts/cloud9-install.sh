@@ -37,7 +37,7 @@ curl -fSL https://archive.apache.org/dist/maven/maven-${MAVEN_VERSION:0:1}/${MAV
 NODE_VERSION=6.2.0
 
 sudo curl -fSL https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz -o node.tar.gz \
- && echo "75b029b30d4a4147d67cf75bf6e034291fb5919c6935ec23f8365cee2d463f12 node.tar.gz" | sha256sum -c \
+ && echo "661dba369c277603fa6d0182c4ea7ff074ba6bacd19171826271f872afd6aaa7 node.tar.gz" | sha256sum -c \
  && sudo tar -xzf node.tar.gz -C /usr/local --strip-components=1 \
  && sudo rm -rf node.tar.gz
  
