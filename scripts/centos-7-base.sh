@@ -16,3 +16,9 @@ cat >> /etc/environment << EOF
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 EOF
+
+cat >> ~/.ssh/known_hosts << EOF
+Host *
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+EOF
