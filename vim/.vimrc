@@ -19,11 +19,13 @@ set showmode
 set smartcase
 set imcmdline
 
+" no auto comments on next line
+set formatoptions-=c formatoptions-=r formatoptions-=o
+
 " highlight current line
 set cursorline
 hi CursorLine cterm=NONE ctermbg=brown ctermfg=black
 
 " highlight trailing whitespace
 hi TrailingWhitespace ctermbg=red
-match TrailingWhitespace /\s\+$/
-
+match TrailingWhitespace /\s\+$/ 
