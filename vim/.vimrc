@@ -23,8 +23,8 @@ set imcmdline
 autocmd BufRead,BufNewFile *.go setfiletype go
 
 " noexpandtab for special filetypes
-autocmd FileType go set ts=4 sw=4 noexpandtab
-autocmd FileType make set ts=4 sw=4 noexpandtab
+autocmd FileType go set noexpandtab
+autocmd FileType makefile set noexpandtab
  
 " no auto comments on next line
 set formatoptions-=c formatoptions-=r formatoptions-=o
