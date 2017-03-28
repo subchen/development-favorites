@@ -19,6 +19,13 @@ set showmode
 set smartcase
 set imcmdline
 
+" detect *.go
+autocmd BufRead,BufNewFile *.go setfiletype go
+
+" noexpandtab for special filetypes
+autocmd FileType go set ts=4 sw=4 noexpandtab
+autocmd FileType make set ts=4 sw=4 noexpandtab
+ 
 " no auto comments on next line
 set formatoptions-=c formatoptions-=r formatoptions-=o
 
