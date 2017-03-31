@@ -17,7 +17,7 @@ LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 EOF
 
-cat >> ~/.ssh/known_hosts << EOF
+cat >> ~/.ssh/config << EOF
 Host *
     StrictHostKeyChecking no
     UserKnownHostsFile /dev/null
