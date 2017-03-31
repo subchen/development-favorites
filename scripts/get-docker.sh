@@ -11,7 +11,7 @@ chmod +x /usr/bin/docker-compose
 curl -fSL https://github.com/docker/machine/releases/download/v0.7.0/docker-machine_linux-amd64 -o /usr/bin/docker-machine
 chmod +x /usr/bin/docker-machine
 
-cat > /etc/systemd/system/multi-user.target.wants/docker.service << EOF
+cat > /etc/systemd/system/docker.service << EOF
 [Unit]
 Description=Docker Application Container Engine
 Documentation=https://docs.docker.com
