@@ -9,6 +9,15 @@ rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
 # kernel-ml（ml=mainline）for centos 7
 yum --enablerepo=elrepo-kernel install -y kernel-ml
 
-echo
-echo "Please reload your host to take effect."
-echo
+
+#
+# 默认内核启动：
+#
+# 1. 首先找到新版内核的 menuentry 完整字符串.
+#     grep menuentry /boot/grub2/grub.cfg
+# 2. 设置 "CentOS Linux (4.3.3-1.el7.elrepo.x86_64) 7 (Core)" 作为默认的启动项
+#     grub2-set-default "CentOS Linux (4.3.3-1.el7.elrepo.x86_64) 7 (Core)"
+# 3. 验证默认启动项
+#     grub2-editenv list
+# 4. 重启生效
+#
