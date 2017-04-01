@@ -37,4 +37,4 @@ DOCKER_OPTS="--bip=10.8.0.1/24"
 EOF
 
 systemctl daemon-reload
-systemctl enable docker
+systemctl enable docker.service
