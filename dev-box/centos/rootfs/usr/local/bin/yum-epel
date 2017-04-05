@@ -1,0 +1,2 @@
+#!/bin/sh
+exec yum --disablerepo=* --enablerepo=epel "$@"
