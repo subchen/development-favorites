@@ -1,0 +1,10 @@
+[push]
+    default = simple
+[user]
+    name = Guoqiang Chen
+    email = subchen@gmail.com
+[color]
+    ui = true
+[core]
+    editor = vim
+
