@@ -18,6 +18,10 @@ echo "Downloading $GOLANG_FILENAME ..." \
  && tar -zxf $GOLANG_FILENAME -C $GOLANG_HOME --strip-components=1 \
  && rm -rf $GOLANG_FILENAME
 
+ln -sf $GOLANG_HOME/bin/go           /usr/local/bin/go \
+ && ln -sf $GOLANG_HOME/bin/gofmt    /usr/local/bin/gofmt \
+ && ln -sf $GOLANG_HOME/bin/godoc    /usr/local/bin/godoc
+
 cat > ~/.bashrc.d/golang.sh << EOF
 export GOROOT=/usr/share/go
 export GOPATH=/go
