@@ -182,3 +182,9 @@ req.end();
 * http://www.jinbuguo.com/linux/openssl_install.html
 * http://www.rabbitmq.com/ssl.html
 * https://langui.sh/2009/01/18/openssl-self-signed-ca/
+
+## 9. 新方法: 使用 cfssl
+
+* https://github.com/opsnull/follow-me-install-kubernetes-cluster/blob/master/01-TLS%E8%AF%81%E4%B9%A6%E5%92%8C%E7%A7%98%E9%92%A5.md
+* https://coreos.com/os/docs/latest/generate-self-signed-certificates.html
+
