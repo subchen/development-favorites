@@ -8,7 +8,7 @@ set -e
 GOLANG_VERSION=1.8.1
 
 GOLANG_FILENAME=go${GOLANG_VERSION}.linux-amd64.tar.gz
-GOLANG_HOME=/usr/share/go
+GOLANG_HOME=/usr/local/go
 
 echo "Downloading $GOLANG_FILENAME ..." \
  && proxy-sh curl -fSL https://storage.googleapis.com/golang/${GOLANG_FILENAME} -o ${GOLANG_FILENAME} \
@@ -23,7 +23,7 @@ ln -sf $GOLANG_HOME/bin/go           /usr/local/bin/go \
  && ln -sf $GOLANG_HOME/bin/godoc    /usr/local/bin/godoc
 
 cat > ~/.bashrc.d/golang.sh << EOF
-export GOROOT=/usr/share/go
+export GOROOT=/usr/local/go
 export GOPATH=/go
 export PATH=\$GOPATH/bin:\$GOROOT/bin:\$PATH
 EOF
