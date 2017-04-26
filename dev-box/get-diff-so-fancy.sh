@@ -10,4 +10,5 @@ echo "Downloading diff-so-fancy-${DSF_VERSION}.tar.gz ..."
  && rm -f diff-so-fancy.tar.gz \
  && ln -sf /usr/share/diff-so-fancy-${DSF_VERSION}/diff-so-fancy /usr/local/bin/
 
-git config --global alias.dsf '!f() { [ -z "$GIT_PREFIX" ] || cd "$GIT_PREFIX" && git diff --color "$@" | diff-so-fancy | less --tabs=4 -RFX; }; f'
+git config --global alias.diff-so-fancy '!f() { [ -z "$GIT_PREFIX" ] || cd "$GIT_PREFIX" && git diff --color "$@" | diff-so-fancy | less --tabs=4 -RFX; }; f'
+git config --global alias.show-so-fancy '!f() { [ -z "$GIT_PREFIX" ] || cd "$GIT_PREFIX" && git show --color "$@" | diff-so-fancy | less --tabs=4 -RFX; }; f'
