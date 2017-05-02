@@ -2,10 +2,12 @@
 
 set -e
 
+OS=$(uname -s | tr [A-Z] [a-z])
+
 #NODE_VERSION=6.10.1 # LTS
 
-NODE_VERSION=7.8.0
-NODE_FILENAME=node-v$NODE_VERSION-linux-x64.tar.gz
+NODE_VERSION=7.9.0
+NODE_FILENAME=node-v$NODE_VERSION-$OS-x64.tar.gz
 
 echo "Downloading $NODE_FILENAME ..." \
  && proxy-sh curl -fSL https://nodejs.org/dist/v$NODE_VERSION/$NODE_FILENAME -o $NODE_FILENAME \
