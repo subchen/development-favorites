@@ -10,9 +10,10 @@ brew install caskroom/cask/brew-cask
 # basic tools
 brew install \
     openssh-ssl ssh-copy-id sshfs \
-    git wget vim curl md5sha1sum coreutils pcre \
+    git wget vim curl coreutils pcre \
     the_silver_searcher jq yajl
 
+ln -sf /usr/local/bin/gmd5sum /usr/local/bin/md5sum
 ln -sf /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 
 # sshpass
