@@ -2,14 +2,14 @@
 
 set -e
 
-ARCH=$(uname -s | tr [A-Z] [a-z])
+OS=$(uname -s | tr [A-Z] [a-z])
 
 #GOLANG_VERSION=1.7.5
 #GOLANG_SHA256_SUM=2e4dd6c44f0693bef4e7b46cc701513d74c3cc44f2419bf519d7868b12931ac3
 
 GOLANG_VERSION=1.8.1
 
-GOLANG_FILENAME=go${GOLANG_VERSION}.$ARCH-amd64.tar.gz
+GOLANG_FILENAME=go${GOLANG_VERSION}.$OS-amd64.tar.gz
 GOLANG_HOME=/usr/share/go
 
 echo "Downloading $GOLANG_FILENAME ..." \
