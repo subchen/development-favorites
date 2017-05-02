@@ -7,7 +7,7 @@ set -x
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 brew install caskroom/cask/brew-cask
 
-# sshpass
+# basic tools
 brew install \
     openssh-ssl ssh-copy-id sshfs \
     git wget vim curl md5sha1sum coreutils pcre \
