@@ -49,7 +49,6 @@ yum-rpmforge install -y \
 
 
 ## update ~/.bashrc
-sed -i '/. .bashrc_devbox/d' ~/.bashrc
-sed -i '$a . .bashrc_devbox' ~/.bashrc
-. ~/.bashrc_devbox
+echo -e "$(grep -v bashrc_devbox ~/.bashrc)\n\nsource .bashrc_devbox\n" > ~/.bashrc
+source ~/.bashrc_devbox
 
