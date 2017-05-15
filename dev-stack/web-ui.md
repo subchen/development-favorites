@@ -1,8 +1,8 @@
 # JavaScript
 
 * Form Input
- * [Selectize.js](https://github.com/selectize/selectize.js)
- * [Select2](https://github.com/select2/select2)
+  * [Selectize.js](https://github.com/selectize/selectize.js)
+  * [Select2](https://github.com/select2/select2)
 
 * Templates
   * [handlerbars.js](https://github.com/wycats/handlebars.js)
@@ -49,5 +49,10 @@
 
 # Angular.JS
 
-* [angular-ui](http://angular-ui.github.io/)
-* [angular-async-loader](https://github.com/subchen/angular-async-loader)
+  * [angular-ui](http://angular-ui.github.io/)
+  * [angular-async-loader](https://github.com/subchen/angular-async-loader)
+
+# VUE
+
+  * [awesome-vue](https://github.com/vuejs/awesome-vue)
+  
