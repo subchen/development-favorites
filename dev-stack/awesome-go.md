@@ -46,11 +46,13 @@
 ## Files
 
 - [afero](https://github.com/spf13/afero) - A FileSystem Abstraction System for Go.
+- [doublestar](https://github.com/bmatcuk/doublestar) - Implements support for double star (**) matches in golang's path.Match and filepatch.Glob.
 
 ## Utilities
 
 - [gstack](https://github.com/subchen/gstack) - Some often-used Golang utilities.
 - [go-dry](https://github.com/ungerik/go-dry) - DRY (don’t repeat yourself) package for Go.
+- [go-humanize](https://github.com/dustin/go-humanize) - Formatters for time, numbers, and memory size to human readable format.
 
 ## Template Engines
 
@@ -66,7 +68,7 @@
 - [glide](https://github.com/Masterminds/glide) - Manage your golang vendor and vendored packages with ease. Inspired by tools like Maven, Bundler, and Pip.
 - [dep](https://github.com/golang/dep) - Go dependency tool.
 
-## Reference
+## References
 
 - https://awesome-go.com/
 - https://go.libhunt.com/
