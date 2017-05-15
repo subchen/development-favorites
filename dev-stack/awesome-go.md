@@ -20,6 +20,7 @@
 
 - [yaml](https://github.com/go-yaml/yaml) - YAML support for the Go language.
 - [toml](https://github.com/BurntSushi/toml) - TOML configuration format (encoder/decoder with reflection).
+- [gojq](https://github.com/elgs/gojq) - JSON query in Golang.
 
 ## Security
 
@@ -55,6 +56,10 @@
 
 - [pongo2](https://github.com/flosch/pongo2) - A Django-like template-engine for Go.
 - [sprig](https://github.com/Masterminds/sprig) - Useful template functions for Go templates.
+
+## Testing
+
+- [gomock](https://github.com/golang/mock) - Mocking framework for the Go programming language.
 
 ## Go Tools
 
