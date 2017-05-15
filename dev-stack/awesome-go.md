@@ -23,6 +23,7 @@
 
 ## Security
 
+- [osin](https://github.com/RangelReale/osin) - Golang OAuth2 server library
 - [jwt-go](https://github.com/dgrijalva/jwt-go) - Golang implementation of JSON Web Tokens (JWT).
 
 ## Database
