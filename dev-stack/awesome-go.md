@@ -21,6 +21,8 @@
 - [yaml](https://github.com/go-yaml/yaml) - YAML support for the Go language.
 - [toml](https://github.com/BurntSushi/toml) - TOML configuration format (encoder/decoder with reflection).
 - [gojq](https://github.com/elgs/gojq) - JSON query in Golang.
+- [go-xmldom](https://github.com/subchen/go-xmldom) - XML DOM processing for Golang, supports xpath query
+- [etree](https://github.com/beevik/etree) - parse and generate XML easily in go
 
 ## Security
 
@@ -61,6 +63,7 @@
 
 ## Testing
 
+- [goconvey](github.com/smartystreets/goconvey) - Go testing in the browser. Integrates with `go test`. Write behavioral tests in Go
 - [gomock](https://github.com/golang/mock) - Mocking framework for the Go programming language.
 
 ## Go Tools
