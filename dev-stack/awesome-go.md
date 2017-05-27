@@ -35,6 +35,7 @@
 
 ## Data Structures
 
+- [gods](https://github.com/emirpasic/gods) - Go Data Structures. Containers, Sets, Lists, Stacks, Maps, BidiMaps, Trees, HashSet etc.
 - [go-datastructures](https://github.com/Workiva/go-datastructures) - A collection of useful, performant, and thread-safe data structures
 
 ## Goroutines
