@@ -10,12 +10,13 @@ filetype on
 
 " Visual
 set background=light
+colorscheme default
+
 set number
 set showmatch           " Show matching brackets
 set ruler
 set modeline
-set laststatus=2        " Show status
-set cmdheight=2
+set laststatus=2        " Show statusbar
 set showcmd             " Display an incomplete command in the lower right corner of the Vim window:
 set showfulltag
 set showmode
@@ -50,28 +51,30 @@ set autoindent
 
 " Highlight current line
 set cursorline
-highlight CursorLine cterm=NONE ctermbg=brown ctermfg=black
+highlight CursorLine cterm=NONE ctermbg=DarkYellow ctermfg=Black
 
 " Highlight trailing whitespace
-highlight TrailingWhitespace ctermbg=red
+highlight TrailingWhitespace ctermbg=Red
 match TrailingWhitespace /\s\+$/
 
 
 " ------------------------------------
 " Key mappings
 " ------------------------------------
-noremap <silent> <F12>ve :tabnew ~/.vimrc<CR>
-noremap <silent> <F12>vr :source ~/.vimrc<CR>
+let mapleader = ","
 
-noremap <silent> <F12>tn :tabnew<CR>
-noremap <silent> <F12>t[ :tabprev<CR>
-noremap <silent> <F12>t] :tabnext<CR>
+noremap <silent> <F12>e :tabnew ~/.vimrc<CR>
+noremap <silent> <F12>r :source ~/.vimrc<CR>
 
-noremap <silent> <F12>ws :new<CR>
-noremap <silent> <F12>wv :vnew<CR>
+noremap <silent> <F12>t :tabnew<CR>
+noremap <silent> <F12>[ :tabprev<CR>
+noremap <silent> <F12>] :tabnext<CR>
 
-noremap <silent> <F12>= :set foldenable foldmethod=indent<CR>
-noremap <silent> <F12>- :set nofoldenable<CR>
+noremap <silent> <F12>w :new<CR>
+noremap <silent> <F12>v :vnew<CR>
+
+noremap <silent> <F12>fo :set foldenable foldmethod=syntax<CR>
+noremap <silent> <F12>fc :set nofoldenable<CR>
 
 " ------------------------------------
 " detect *.go, *.md
@@ -96,9 +99,14 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'vim-scripts/ZoomWin'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'chriskempson/base16-vim'
 Plugin 'fatih/vim-go'
+"Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
@@ -115,8 +123,8 @@ filetype plugin indent on
 " ------------------------------------
 "   nerdtree & nerdtree-git-plugin
 " ------------------------------------
-noremap <F12>f :NERDTreeToggle<CR>
-let NERDTreeChDirMode=2
+noremap <F4> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 let g:NERDTreeIndicatorMapCustom = {
@@ -136,6 +144,7 @@ let g:NERDTreeIndicatorMapCustom = {
 "   ag.vim
 " ------------------------------------
 let g:ag_prg="ag --column"
+
 " Usage
 "   :Ag [options] {pattern} [{directory}]
 "
@@ -149,4 +158,68 @@ let g:ag_prg="ag --column"
 "   v    to open in vertical split
 "   gv   to open in vertical split silently
 "   q    to close the quickfix window
+"
+
+" ------------------------------------
+"   ZoomWin
+" ------------------------------------
+" Usage
+"   <C-W>o  " toggle full window
+"
+
+" ------------------------------------
+"   ctrlp
+" ------------------------------------
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll)$',
+    \ }
+
+" Usage
+"   <C-P> or :CtrlP " Start to search
+"   Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
+"   Press <c-f> and <c-b> to cycle between modes.
+"   Press <c-d> to switch to filename only search instead of full path.
+"   Press <c-r> to switch to regexp mode.
+"   Use <c-j>, <c-k> or the arrow keys to navigate the result list.
+"   Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
+"   Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
+"   Use <c-y> to create a new file and its parent directories.
+"   Use <c-z> to mark/unmark multiple files and <c-o> to open them.
+"
+
+" ------------------------------------
+"   vim-airline & vim-airline-themes
+" ------------------------------------
+let g:airline_theme='hybrid'
+
+" ------------------------------------
+"   base16-vim
+" ------------------------------------
+" Usage
+"   :colorscheme base16-default
+"
+
+" ------------------------------------
+"   go-vim
+" ------------------------------------
+let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+
+" Install
+"   :GoInstallBinaries
+"
+"
+
+" ------------------------------------
+"   YouCompleteMe
+" ------------------------------------
+" Install manual
+"   $ yum install -y install automake gcc gcc-c++ kernel-devel cmake make python-devel
+"   $ cd ~/.vim/bundle/YouCompleteMe
+"   $ ./install.py --all
 "
