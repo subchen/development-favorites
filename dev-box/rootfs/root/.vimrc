@@ -1,39 +1,136 @@
-filetype on
-syntax on
-
+" ===================================
+" General
+set nocompatible
 set encoding=utf-8
+
+syntax on
+filetype on
+
+" Visual
 set background=light
-set tabstop=4
-set shiftwidth=4
 set number
-set expandtab
-set showmatch
+set showmatch           " Show matching brackets
 set ruler
-set ignorecase
-set hlsearch
-set incsearch
 set modeline
-set showcmd
+set showcmd             " Display an incomplete command in the lower right corner of the Vim window:
 set showfulltag
 set showmode
-set smartcase
 set imcmdline
+set clipboard+=unnamed  " Yanks go on clipboard instead.
 
-" detect *.go
-autocmd BufRead,BufNewFile *.go setfiletype go
+" Toggle between paste and normal: to safe pasting from keyboard
+set pastetoggle=<F11>
 
-" noexpandtab for special filetypes
-autocmd FileType go set ts=4 sw=4 noexpandtab
-autocmd FileType makefile set ts=4 sw=4 noexpandtab
+" Backup
+set nowritebackup
+set nobackup
 
-" no auto comments on next line
-set formatoptions-=c formatoptions-=r formatoptions-=o
+" Match and search
+set hlsearch        " Highlight search
+set incsearch
+set ignorecase      " Do case in sensitive matching with
+set smartcase       " Be sensitive when there's a capital letter
 
-" highlight current line
+" Formatting
+set nowrap
+set textwidth=0             " Don't wrap lines by default
+set wildmode=longest,list
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab       " Make tabs into spaces (set by tabstop)
+set smarttab
+
+set autoindent
+
+" Highlight current line
 set cursorline
-hi CursorLine cterm=NONE ctermbg=brown ctermfg=black
+highlight CursorLine cterm=NONE ctermbg=brown ctermfg=black
 
-" highlight trailing whitespace
-hi TrailingWhitespace ctermbg=red
+" Highlight trailing whitespace
+highlight TrailingWhitespace ctermbg=red
 match TrailingWhitespace /\s\+$/
 
+
+" ------------------------------------
+" Key mappings
+noremap <silent> <F12>ve :tabnew ~/.vimrc<CR>
+noremap <silent> <F12>vr :source ~/.vimrc<CR>
+
+noremap <silent> <F12>tn :tabnew<CR>
+noremap <silent> <F12>t[ :tabprev<CR>
+noremap <silent> <F12>t] :tabnext<CR>
+
+noremap <silent> <F12>ws :new<CR>
+noremap <silent> <F12>wv :vnew<CR>
+
+" ------------------------------------
+" detect *.go, *.md
+autocmd BufRead,BufNewFile {*.go}              set ft=go
+autocmd BufRead,BufNewFile {*.md,*.markdown}   set ft=markdown
+
+" noexpandtab for special filetypes
+autocmd FileType go       set ts=4 sw=4 noexpandtab
+autocmd FileType makefile set ts=4 sw=4 noexpandtab
+
+
+" ===================================
+" Bundle plugins (vundle)
+"
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'rking/ag.vim'
+Plugin 'fatih/vim-go'
+
+call vundle#end()
+filetype plugin indent on
+
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" ------------------------------------
+noremap <F12>f :NERDTreeToggle<CR>
+let NERDTreeChDirMode=2
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "*",
+    \ "Staged"    : "+",
+    \ "Untracked" : "-",
+    \ "Renamed"   : ">",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "x",
+    \ "Dirty"     : "*",
+    \ "Clean"     : "o",
+    \ 'Ignored'   : '!',
+    \ "Unknown"   : "?"
+    \ }
+
+" ------------------------------------
+let g:ag_prg="ag --column"
+" Usage
+" :Ag [options] {pattern} [{directory}]
+"
+" In the quickfix window, you can use:
+"    o    to open (same as enter)
+"    go   to preview file (open but maintain focus on ag.vim results)
+"    t    to open in new tab
+"    T    to open in new tab silently
+"    h    to open in horizontal split
+"    H    to open in horizontal split silently
+"    v    to open in vertical split
+"    gv   to open in vertical split silently
+"    q    to close the quickfix window
+"
