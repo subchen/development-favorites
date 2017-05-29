@@ -4,6 +4,7 @@
 set nocompatible
 set encoding=utf-8
 set fileformat=unix
+set backspace=2        " Backspace deletes char in insert mode
 
 syntax on
 filetype on
@@ -50,8 +51,10 @@ set smarttab
 set autoindent
 
 " Highlight current line
-set cursorline
 highlight CursorLine cterm=NONE ctermbg=DarkYellow ctermfg=Black
+autocmd WinEnter * set cursorline
+autocmd WinLeave * set nocursorline
+set cursorline
 
 " Highlight trailing whitespace
 highlight TrailingWhitespace ctermbg=Red
