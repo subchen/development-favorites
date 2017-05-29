@@ -125,6 +125,7 @@ filetype plugin indent on
 " ------------------------------------
 noremap <F4> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+let g:NERDTreeChDirMode=2
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 let g:NERDTreeIndicatorMapCustom = {
@@ -149,6 +150,7 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn)$',
     \ 'file': '\v\.(exe|so|dll)$',
     \ }
+let g:ctrlp_working_path_mode='rw'
 
 " Usage
 "   <C-P> or :CtrlP " Start to search
