@@ -33,7 +33,7 @@ cp -rf $ROOT/rootfs/*           /
 cp -rf $ROOT/rootfs-centos/*    /
 
 yum-default install -y \
-    vim tmux wget curl zip unzip \
+    vim tmux wget curl zip unzip which \
     net-tools tree psmisc bind-utils nmap-ncat \
     git rsync \
     yajl \
