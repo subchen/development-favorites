@@ -141,6 +141,29 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 " ------------------------------------
+"   ctrlp
+" ------------------------------------
+noremap <F3> :CtrlP<CR>
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll)$',
+    \ }
+
+" Usage
+"   <C-P> or :CtrlP " Start to search
+"   Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
+"   Press <c-f> and <c-b> to cycle between modes.
+"   Press <c-d> to switch to filename only search instead of full path.
+"   Press <c-r> to switch to regexp mode.
+"   Use <c-j>, <c-k> or the arrow keys to navigate the result list.
+"   Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
+"   Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
+"   Use <c-y> to create a new file and its parent directories.
+"   Use <c-z> to mark/unmark multiple files and <c-o> to open them.
+"
+
+" ------------------------------------
 "   ag.vim
 " ------------------------------------
 let g:ag_prg="ag --column"
@@ -168,28 +191,6 @@ let g:ag_prg="ag --column"
 "
 
 " ------------------------------------
-"   ctrlp
-" ------------------------------------
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-    \ 'file': '\v\.(exe|so|dll)$',
-    \ }
-
-" Usage
-"   <C-P> or :CtrlP " Start to search
-"   Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
-"   Press <c-f> and <c-b> to cycle between modes.
-"   Press <c-d> to switch to filename only search instead of full path.
-"   Press <c-r> to switch to regexp mode.
-"   Use <c-j>, <c-k> or the arrow keys to navigate the result list.
-"   Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
-"   Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
-"   Use <c-y> to create a new file and its parent directories.
-"   Use <c-z> to mark/unmark multiple files and <c-o> to open them.
-"
-
-" ------------------------------------
 "   vim-airline & vim-airline-themes
 " ------------------------------------
 let g:airline_theme='hybrid'
@@ -212,7 +213,6 @@ let g:go_highlight_methods = 1
 
 " Install
 "   :GoInstallBinaries
-"
 "
 
 " ------------------------------------
