@@ -3,6 +3,7 @@
 " ===================================
 set nocompatible
 set encoding=utf-8
+set fileencoding=utf-8
 set fileformat=unix
 set backspace=2        " Backspace deletes char in insert mode
 
@@ -10,6 +11,7 @@ syntax on
 filetype on
 
 " Visual
+set t_Co=256            " Support 256 colors
 set background=light
 colorscheme default
 
@@ -31,6 +33,9 @@ set pastetoggle=<F11>
 set nowritebackup
 set nobackup
 
+set autoread    " auto load if file updated
+set autowrite   " auto save when :make
+
 " Match and search
 set hlsearch        " Highlight search
 set incsearch       " Instant Search
@@ -51,10 +56,10 @@ set smarttab
 set autoindent
 
 " Highlight current line
+set cursorline
 highlight CursorLine cterm=NONE ctermbg=DarkYellow ctermfg=Black
 autocmd WinEnter * set cursorline
 autocmd WinLeave * set nocursorline
-set cursorline
 
 " Highlight trailing whitespace
 highlight TrailingWhitespace ctermbg=Red
@@ -64,17 +69,21 @@ match TrailingWhitespace /\s\+$/
 " ------------------------------------
 " Key mappings
 " ------------------------------------
-let mapleader = ","
+let mapleader = ','
 
-noremap <silent> <F12>e :tabnew ~/.vimrc<CR>
+noremap <silent> <F12>e :e ~/.vimrc<CR>
 noremap <silent> <F12>r :source ~/.vimrc<CR>
 
-noremap <silent> <F12>t :tabnew<CR>
-noremap <silent> <F12>[ :tabprev<CR>
-noremap <silent> <F12>] :tabnext<CR>
+noremap <silent> <C-T>t :tabnew<CR>
+noremap <silent> <C-T>b :tabprev<CR>
+noremap <silent> <C-T>n :tabnext<CR>
 
-noremap <silent> <F12>w :new<CR>
-noremap <silent> <F12>v :vnew<CR>
+" Default keys for windows
+"noremap <silent> <C-W>n :new<CR>
+"noremap <silent> <C-W>v :vnew<CR>
+
+noremap <silent> <C-N> :bn<CR>
+noremap <silent> <C-B> :bp<CR>
 
 noremap <silent> <F12>fo :set foldenable foldmethod=syntax<CR>
 noremap <silent> <F12>fc :set nofoldenable<CR>
@@ -95,6 +104,7 @@ autocmd FileType makefile set ts=4 sw=4 noexpandtab
 "   $ mkdir -p ~/.vim/bundle/
 "   $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 " ===================================
+set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -127,51 +137,28 @@ filetype plugin indent on
 "   nerdtree & nerdtree-git-plugin
 " ------------------------------------
 noremap <F4> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
-let g:NERDTreeChDirMode=2
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '-'
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeChDirMode = 2
+let g:NERDTreeWinPos = 'left'
+let g:NERDTreeDirArrows = 0             " Use Arrows or '+,-,|'
+let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "*",
-    \ "Staged"    : "+",
-    \ "Untracked" : "-",
-    \ "Renamed"   : ">",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "x",
-    \ "Dirty"     : "*",
-    \ "Clean"     : "o",
+    \ 'Modified'  : '*',
+    \ 'Staged'    : '+',
+    \ 'Untracked' : '-',
+    \ 'Renamed'   : '>',
+    \ 'Unmerged'  : '═',
+    \ 'Deleted'   : 'x',
+    \ 'Dirty'     : '*',
+    \ 'Clean'     : 'o',
     \ 'Ignored'   : '!',
-    \ "Unknown"   : "?"
+    \ 'Unknown'   : '?'
     \ }
-
-" ------------------------------------
-"   ctrlp
-" ------------------------------------
-noremap <F3> :CtrlP<CR>
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-    \ 'file': '\v\.(exe|so|dll)$',
-    \ }
-let g:ctrlp_working_path_mode='rw'
-
-" Usage
-"   <C-P> or :CtrlP " Start to search
-"   Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
-"   Press <c-f> and <c-b> to cycle between modes.
-"   Press <c-d> to switch to filename only search instead of full path.
-"   Press <c-r> to switch to regexp mode.
-"   Use <c-j>, <c-k> or the arrow keys to navigate the result list.
-"   Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
-"   Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
-"   Use <c-y> to create a new file and its parent directories.
-"   Use <c-z> to mark/unmark multiple files and <c-o> to open them.
-"
 
 " ------------------------------------
 "   ag.vim
 " ------------------------------------
-let g:ag_prg="ag --column"
+let g:ag_prg = 'ag --column'
 
 " Usage
 "   :Ag [options] {pattern} [{directory}]
@@ -196,34 +183,67 @@ let g:ag_prg="ag --column"
 "
 
 " ------------------------------------
-"   vim-airline & vim-airline-themes
+"   ctrlp
 " ------------------------------------
-let g:airline_theme='hybrid'
+noremap <F3> :CtrlP<CR>
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll)$',
+    \ }
+let g:ctrlp_working_path_mode = 'rw'
+
+" Usage
+"   <C-P> or :CtrlP " Start to search
+"   Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
+"   Press <c-f> and <c-b> to cycle between modes.
+"   Press <c-d> to switch to filename only search instead of full path.
+"   Press <c-r> to switch to regexp mode.
+"   Use <c-j>, <c-k> or the arrow keys to navigate the result list.
+"   Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
+"   Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
+"   Use <c-y> to create a new file and its parent directories.
+"   Use <c-z> to mark/unmark multiple files and <c-o> to open them.
+"
 
 " ------------------------------------
-"   base16-vim
+"   vim-airline & vim-airline-themes
 " ------------------------------------
-" Usage
-"   :colorscheme base16-default
+let g:airline_theme = 'molokai'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+" ------------------------------------
+"   theme: molokai or base16
+" ------------------------------------
+" Install manual
+"   $ mkdir -p ~/.vim/colors
+"   $ curl -fSL https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim -o ~/.vim/colors/molokai.vim
 "
+set t_Co=256          " Support 256 colors
+let g:rehash256 = 1
+colorscheme molokai
 
 " ------------------------------------
 "   go-vim
 " ------------------------------------
-let g:go_fmt_command = "goimports"
+" Install
+"   :GoInstallBinaries
+"
+let g:go_fmt_command = 'goimports'
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 
-" Install
-"   :GoInstallBinaries
-"
 
 " ------------------------------------
 "   YouCompleteMe
 " ------------------------------------
-" Install manual
+" Install
 "   $ yum install -y install automake gcc gcc-c++ kernel-devel cmake make python-devel
 "   $ cd ~/.vim/bundle/YouCompleteMe
 "   $ ./install.py --all
