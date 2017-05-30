@@ -27,6 +27,7 @@ set showcmd             " Display an incomplete command in the lower right corne
 set showfulltag
 set showmode
 set imcmdline
+set wildmenu            " Turn on the wild menu
 set clipboard+=unnamed  " Yanks go on clipboard instead.
 
 " Backup
