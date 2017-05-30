@@ -71,6 +71,9 @@ autocmd WinLeave * set nocursorline
 " ------------------------------------
 let g:mapleader = ','
 
+" :W sudo saves the file (useful for handling the permission-denied error)
+command W w !sudo tee % > /dev/null
+
 noremap <silent> <F12>e :e ~/.vimrc<CR>
 noremap <silent> <F12>r :source ~/.vimrc<CR>
 
