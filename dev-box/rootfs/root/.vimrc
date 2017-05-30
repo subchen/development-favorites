@@ -62,8 +62,8 @@ autocmd WinEnter * set cursorline
 autocmd WinLeave * set nocursorline
 
 " Highlight trailing whitespace (replaced by bronson/vim-trailing-whitespace)
-" highlight TrailingWhitespace ctermbg=Red
-" match TrailingWhitespace /\s\+$/
+"highlight TrailingWhitespace ctermbg=Red
+"match TrailingWhitespace /\s\+$/
 
 
 " ------------------------------------
