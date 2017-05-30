@@ -262,8 +262,8 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " ------------------------------------
 "   mark.vim
 " ------------------------------------
-noremap <silent> <leader>, <Plug>MarkSearchCurrentPrev
-noremap <silent> <leader>. <Plug>MarkSearchCurrentNext
+nmap <silent> <leader>, <Plug>MarkSearchCurrentPrev
+nmap <silent> <leader>. <Plug>MarkSearchCurrentNext
 " Usage (default)
 "  <leader>m    " mark/unmark a word
 "  <leader>*    " goto next current marked word
