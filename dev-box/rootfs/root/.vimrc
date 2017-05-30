@@ -6,6 +6,9 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileformat=unix
 set backspace=2        " Backspace deletes char in insert mode
+set history=3000
+set novisualbell             "don't beep
+set noerrorbells             "don't beep
 
 syntax on
 filetype on
@@ -25,9 +28,6 @@ set showfulltag
 set showmode
 set imcmdline
 set clipboard+=unnamed  " Yanks go on clipboard instead.
-
-" Toggle between paste and normal: to safe pasting from keyboard
-set pastetoggle=<F11>
 
 " Backup
 set nowritebackup
@@ -61,22 +61,27 @@ highlight CursorLine cterm=NONE ctermbg=DarkYellow ctermfg=Black
 autocmd WinEnter * set cursorline
 autocmd WinLeave * set nocursorline
 
-" Highlight trailing whitespace
-highlight TrailingWhitespace ctermbg=Red
-match TrailingWhitespace /\s\+$/
+" Highlight trailing whitespace (replaced by bronson/vim-trailing-whitespace)
+" highlight TrailingWhitespace ctermbg=Red
+" match TrailingWhitespace /\s\+$/
 
 
 " ------------------------------------
 " Key mappings
 " ------------------------------------
-let mapleader = ','
+let g:mapleader = ','
 
 noremap <silent> <F12>e :e ~/.vimrc<CR>
 noremap <silent> <F12>r :source ~/.vimrc<CR>
 
-noremap <silent> <C-T>t :tabnew<CR>
-noremap <silent> <C-T>b :tabprev<CR>
-noremap <silent> <C-T>n :tabnext<CR>
+noremap <silent> <F2> :set number!<CR>
+
+" Toggle between paste and normal: to safe pasting from keyboard
+set pastetoggle=<F11>
+
+noremap <silent> <leader>tn :tabnew<CR>
+noremap <silent> <leader>tp :tabprev<CR>
+noremap <silent> <leader>tn :tabnext<CR>
 
 " Default keys for windows
 "noremap <silent> <C-W>n :new<CR>
@@ -85,8 +90,8 @@ noremap <silent> <C-T>n :tabnext<CR>
 noremap <silent> <C-N> :bn<CR>
 noremap <silent> <C-B> :bp<CR>
 
-noremap <silent> <F12>fo :set foldenable foldmethod=syntax<CR>
-noremap <silent> <F12>fc :set nofoldenable<CR>
+noremap <silent> <leader>fo :set foldenable foldmethod=syntax<CR>
+noremap <silent> <leader>fc :set nofoldenable<CR>
 
 " ------------------------------------
 " detect *.go, *.md
@@ -113,13 +118,17 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
 Plugin 'rking/ag.vim'
 Plugin 'vim-scripts/ZoomWin'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'chriskempson/base16-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'chriskempson/base16-vim'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'mbriggs/mark.vim'
 Plugin 'fatih/vim-go'
-"Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
@@ -136,12 +145,22 @@ filetype plugin indent on
 " ------------------------------------
 "   nerdtree & nerdtree-git-plugin
 " ------------------------------------
-noremap <F4> :NERDTreeToggle<CR>
+noremap <silent> <F4> :NERDTreeToggle<CR>
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeWinPos = 'left'
+let g:NERDTreeWinSize = 30
 let g:NERDTreeDirArrows = 0             " Use Arrows or '+,-,|'
 let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeIgnore = [
+    \ '\.pyc$', '\.pyo$',
+    \ '\.obj$', '\.o$', '\.so$',
+    \ '^\~\$', '\.swp$',
+    \ '\.DS_Store$',
+    \ '^\.idea$',
+    \ '^\.git$', '^\.svn$', '^\.hg$'
+    \ ]
+
 let g:NERDTreeIndicatorMapCustom = {
     \ 'Modified'  : '*',
     \ 'Staged'    : '+',
@@ -156,9 +175,47 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 " ------------------------------------
+"   ctrlp
+" ------------------------------------
+noremap <silent> <F3> :CtrlP<CR>
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll)$',
+    \ }
+let g:ctrlp_working_path_mode = 'rw'
+
+" Usage
+"   <C-P> or :CtrlP " Start to search
+"   Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
+"   Press <c-f> and <c-b> to cycle between modes.
+"   Press <c-d> to switch to filename only search instead of full path.
+"   Press <c-r> to switch to regexp mode.
+"   Use <c-j>, <c-k> or the arrow keys to navigate the result list.
+"   Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
+"   Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
+"   Use <c-y> to create a new file and its parent directories.
+"   Use <c-z> to mark/unmark multiple files and <c-o> to open them.
+"
+
+" ------------------------------------
+"   tagbar
+" ------------------------------------
+noremap <silent> <F8> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
+let g:tagbar_left = 0
+let g:tagbar_expand = 1
+let g:tagbar_compact = 1
+let g:tagbar_singleclick = 1
+let g:tagbar_autoshowtag = 1
+let g:tagbar_ctags_bin = 'ctags'
+let g:tagbar_width = 30
+
+" ------------------------------------
 "   ag.vim
 " ------------------------------------
-let g:ag_prg = 'ag --column'
+let g:ag_prg = 'ag --vimgrep --smart-case'
+let g:ag_working_path_mode = 'r'    " Search from project root
 
 " Usage
 "   :Ag [options] {pattern} [{directory}]
@@ -183,33 +240,19 @@ let g:ag_prg = 'ag --column'
 "
 
 " ------------------------------------
-"   ctrlp
+"   vim-colorschemes and base16-vim
+"   review:    http://vimcolors.com/
+"   customize: http://bytefluent.com/vivify/
 " ------------------------------------
-noremap <F3> :CtrlP<CR>
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-    \ 'file': '\v\.(exe|so|dll)$',
-    \ }
-let g:ctrlp_working_path_mode = 'rw'
-
-" Usage
-"   <C-P> or :CtrlP " Start to search
-"   Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
-"   Press <c-f> and <c-b> to cycle between modes.
-"   Press <c-d> to switch to filename only search instead of full path.
-"   Press <c-r> to switch to regexp mode.
-"   Use <c-j>, <c-k> or the arrow keys to navigate the result list.
-"   Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
-"   Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
-"   Use <c-y> to create a new file and its parent directories.
-"   Use <c-z> to mark/unmark multiple files and <c-o> to open them.
-"
+set t_Co=256          " Support 256 colors
+colorscheme Tomorrow-Night-Eighties
+" colorscheme molokai
+" colorscheme evening
 
 " ------------------------------------
 "   vim-airline & vim-airline-themes
 " ------------------------------------
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'tomorrow'        " Default is same with colorscheme
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -217,15 +260,17 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " ------------------------------------
-"   theme: molokai or base16
+"   mark.vim
 " ------------------------------------
-" Install manual
-"   $ mkdir -p ~/.vim/colors
-"   $ curl -fSL https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim -o ~/.vim/colors/molokai.vim
+noremap <silent> <leader>, <Plug>MarkSearchCurrentPrev
+noremap <silent> <leader>. <Plug>MarkSearchCurrentNext
+" Usage (default)
+"  <leader>m    " mark/unmark a word
+"  <leader>*    " goto next current marked word
+"  <leader>#    " goto prev current marked word
+"  <leader>/    " goto next marked work
+"  <leader>?    " goto prev marked work
 "
-set t_Co=256          " Support 256 colors
-let g:rehash256 = 1
-colorscheme molokai
 
 " ------------------------------------
 "   go-vim
@@ -243,7 +288,7 @@ let g:go_highlight_methods = 1
 " ------------------------------------
 "   YouCompleteMe
 " ------------------------------------
-" Install
+" Install: requires Vim 7.4.1578+
 "   $ yum install -y install automake gcc gcc-c++ kernel-devel cmake make python-devel
 "   $ cd ~/.vim/bundle/YouCompleteMe
 "   $ ./install.py --all
