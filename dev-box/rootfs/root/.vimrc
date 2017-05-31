@@ -149,6 +149,7 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'mbriggs/mark.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'elzr/vim-json'
+Plugin 'vim-scripts/jsbeautify'
 Plugin 'fatih/vim-go'
 " Plugin 'Valloric/YouCompleteMe'
 
@@ -309,7 +310,14 @@ let g:markdown_minlines = 100
 let g:vim_json_syntax_conceal = 0
 
 " :JsonFormat
-command! jsonformat :execute '%!python -m json.tool'
+command! Jsonformat :execute '%!python -m json.tool'
+
+" ------------------------------------
+"   jsbeautify
+" ------------------------------------
+" :Jsformat, Jsbeautify
+command! Jsformat   :call g:Jsbeautify()<CR>
+command! Jsbeautify :call g:Jsbeautify()<CR>
 
 " ------------------------------------
 "   go-vim
