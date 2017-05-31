@@ -1,11 +1,14 @@
+" vim: set sw=4 ts=4 sts=4 et tw=80 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+"
+
 " ===================================
 " General
 " ===================================
-set nocompatible
+set nocompatible        " Must be first line
 set encoding=utf-8
 set fileencoding=utf-8
 set fileformat=unix
-set backspace=2        " Backspace deletes char in insert mode
+set backspace=2         " Backspace deletes char in insert mode
 set history=3000
 set novisualbell             "don't beep
 set noerrorbells             "don't beep
@@ -15,7 +18,7 @@ filetype on
 
 " Visual
 set t_Co=256            " Support 256 colors
-set background=light
+set background=dark
 colorscheme default
 
 set number
@@ -27,8 +30,9 @@ set showcmd             " Display an incomplete command in the lower right corne
 set showfulltag
 set showmode
 set imcmdline
-set wildmenu            " Turn on the wild menu
-set clipboard+=unnamed  " Yanks go on clipboard instead.
+set wildmenu                    " Show list instead of just completing
+set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+set clipboard+=unnamed          " Yanks go on clipboard instead.
 
 " Backup
 set nowritebackup
@@ -46,7 +50,6 @@ set smartcase       " Be sensitive when there's a capital letter
 " Formatting
 set nowrap
 set textwidth=0             " Don't wrap lines by default
-set wildmode=longest,list
 
 set tabstop=4
 set softtabstop=4
@@ -70,7 +73,8 @@ autocmd WinLeave * set nocursorline
 " ------------------------------------
 " Key mappings
 " ------------------------------------
-let g:mapleader = ','
+" The default leader is '\', but many people prefer ','
+let mapleader = ','
 
 " :W sudo saves the file (useful for handling the permission-denied error)
 command! W w !sudo tee % > /dev/null
@@ -83,6 +87,7 @@ noremap <silent> <F2> :set number!<CR>
 " Toggle between paste and normal: to safe pasting from keyboard
 set pastetoggle=<F11>
 
+" Tab option
 noremap <silent> <leader>tn :tabnew<CR>
 noremap <silent> <leader>tp :tabprev<CR>
 noremap <silent> <leader>tn :tabnext<CR>
@@ -91,12 +96,24 @@ noremap <silent> <leader>tn :tabnext<CR>
 "noremap <silent> <C-W>n :new<CR>
 "noremap <silent> <C-W>v :vnew<CR>
 
+" Buffers
 noremap <silent> <C-N> :bn<CR>
 noremap <silent> <C-B> :bp<CR>
 
+" Code folding options
 noremap <silent> <leader>fo :set foldenable foldmethod=syntax<CR>
 noremap <silent> <leader>fc :set nofoldenable<CR>
-
+noremap <silent> <leader>f0 :set foldlevel=0<CR>
+noremap <silent> <leader>f1 :set foldlevel=1<CR>
+noremap <silent> <leader>f2 :set foldlevel=2<CR>
+noremap <silent> <leader>f3 :set foldlevel=3<CR>
+noremap <silent> <leader>f4 :set foldlevel=4<CR>
+noremap <silent> <leader>f5 :set foldlevel=5<CR>
+noremap <silent> <leader>f6 :set foldlevel=6<CR>
+noremap <silent> <leader>f7 :set foldlevel=7<CR>
+noremap <silent> <leader>f8 :set foldlevel=8<CR>
+noremap <silent> <leader>f9 :set foldlevel=9<CR>
+    
 " ------------------------------------
 " detect *.go, *.md
 " ------------------------------------
