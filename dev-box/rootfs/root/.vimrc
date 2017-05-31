@@ -249,6 +249,7 @@ let g:ag_working_path_mode = 'r'    " Search from project root
 "   customize: http://bytefluent.com/vivify/
 " ------------------------------------
 set t_Co=256          " Support 256 colors
+set background=dark
 colorscheme Tomorrow-Night-Eighties
 " colorscheme molokai
 " colorscheme evening
