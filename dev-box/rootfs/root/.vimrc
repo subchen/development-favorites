@@ -148,6 +148,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'mbriggs/mark.vim'
 Plugin 'tpope/vim-markdown'
+Plugin 'elzr/vim-json'
 Plugin 'fatih/vim-go'
 " Plugin 'Valloric/YouCompleteMe'
 
@@ -298,7 +299,13 @@ nmap <silent> <leader>. <Plug>MarkSearchCurrentNext
 "   vim-markdown
 " ------------------------------------
 let g:markdown_fenced_languages = ['html', 'js', 'css', 'python', 'java', 'go', 'bash=sh']
+let g:markdown_syntax_conceal = 0
 let g:markdown_minlines = 100
+
+" ------------------------------------
+"   vim-json
+" ------------------------------------
+let g:vim_json_syntax_conceal = 0
 
 " ------------------------------------
 "   go-vim
