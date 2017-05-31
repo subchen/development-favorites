@@ -76,6 +76,9 @@ autocmd WinLeave * set nocursorline
 " The default leader is '\', but many people prefer ','
 let mapleader = ','
 
+" :Q equals q to exit vim
+command! -bang Q q<bang>
+
 " :W sudo saves the file (useful for handling the permission-denied error)
 command! W w !sudo tee % > /dev/null
 
