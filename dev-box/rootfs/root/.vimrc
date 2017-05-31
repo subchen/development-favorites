@@ -200,8 +200,7 @@ let g:NERDTreeIndicatorMapCustom = {
 "   ctrlp
 " ------------------------------------
 let g:ctrlp_map = '<F3>'
-let g:ctrlp_working_path_mode = 'rw'    " Search from the cwd or the .git root dir
-let g:ctrlp_root_markers = ['.git', 'pom.xml', 'package.json']
+let g:ctrlp_working_path_mode = 'w'    " Search from the cwd
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = {
