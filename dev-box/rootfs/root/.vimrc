@@ -307,6 +307,9 @@ let g:markdown_minlines = 100
 " ------------------------------------
 let g:vim_json_syntax_conceal = 0
 
+" :JsonFormat
+command! JsonFormat :execute '%!python -m json.tool'
+
 " ------------------------------------
 "   go-vim
 " ------------------------------------
