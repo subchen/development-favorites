@@ -205,6 +205,7 @@ let g:NERDTreeIndicatorMapCustom = {
 " ------------------------------------
 let g:ctrlp_map = '<F3>'
 let g:ctrlp_working_path_mode = 'w'    " Search from the cwd
+let g:ctrlp_by_filename = 1            " Search filename, not path
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = {
