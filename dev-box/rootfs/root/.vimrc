@@ -116,7 +116,7 @@ noremap <silent> <leader>f6 :set foldlevel=6<CR>
 noremap <silent> <leader>f7 :set foldlevel=7<CR>
 noremap <silent> <leader>f8 :set foldlevel=8<CR>
 noremap <silent> <leader>f9 :set foldlevel=9<CR>
-    
+
 " ------------------------------------
 " detect *.go, *.md
 " ------------------------------------
