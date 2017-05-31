@@ -118,13 +118,9 @@ noremap <silent> <leader>f8 :set foldlevel=8<CR>
 noremap <silent> <leader>f9 :set foldlevel=9<CR>
 
 " ------------------------------------
-" detect *.go, *.md
+" filetype detect
 " ------------------------------------
-autocmd BufRead,BufNewFile {*.go}              set ft=go
-autocmd BufRead,BufNewFile {*.md,*.markdown}   set ft=markdown
-
 " noexpandtab for special filetypes
-autocmd FileType go       set ts=4 sw=4 noexpandtab
 autocmd FileType makefile set ts=4 sw=4 noexpandtab
 
 
@@ -151,6 +147,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'mbriggs/mark.vim'
+Plugin 'tpope/vim-markdown'
 Plugin 'fatih/vim-go'
 " Plugin 'Valloric/YouCompleteMe'
 
@@ -296,6 +293,12 @@ nmap <silent> <leader>. <Plug>MarkSearchCurrentNext
 "  <leader>/    " goto next marked work
 "  <leader>?    " goto prev marked work
 "
+
+" ------------------------------------
+"   vim-markdown
+" ------------------------------------
+let g:markdown_fenced_languages = ['html', 'js', 'css', 'python', 'java', 'go', 'bash=sh']
+let g:markdown_minlines = 100
 
 " ------------------------------------
 "   go-vim
