@@ -82,6 +82,9 @@ command! -bang Q q<bang>
 " :W sudo saves the file (useful for handling the permission-denied error)
 command! W w !sudo tee % > /dev/null
 
+command! Trimwhitespaces :FixWhitespace<CR>
+command! Unixformat      :set ff=unix<CR>
+
 noremap <silent> <F12>e :e ~/.vimrc<CR>
 noremap <silent> <F12>r :source ~/.vimrc<CR>
 
