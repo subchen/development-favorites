@@ -154,6 +154,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'elzr/vim-json'
 Plugin 'vim-scripts/jsbeautify'
 Plugin 'fatih/vim-go'
+Plugin 'ervandew/supertab'
 " Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
@@ -336,6 +337,10 @@ let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 
+" ------------------------------------
+"   SuperTab
+" ------------------------------------
+let g:SuperTabDefaultCompletionType = 'context'
 
 " ------------------------------------
 "   YouCompleteMe
