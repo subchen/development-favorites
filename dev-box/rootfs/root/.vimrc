@@ -142,7 +142,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'rking/ag.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'chriskempson/base16-vim'
@@ -243,13 +243,17 @@ let g:tagbar_ctags_bin = 'ctags'
 let g:tagbar_width = 30
 
 " ------------------------------------
-"   ag.vim
+"   ack.vim
 " ------------------------------------
-let g:ag_prg = 'ag --vimgrep --smart-case'
-let g:ag_working_path_mode = 'r'    " Search from project root
+if executable('ag')
+    let g:ack_prg = 'ag --vimgrep --smart-case'
+    let g:ack_default_options = ''
+endif
+let g:ack_autoclose = 1
+cnoreabbrev Ack Ack!
 
 " Usage
-"   :Ag [options] {pattern} [{directory}]
+"   :Ack [options] {pattern} [{directory}]
 "
 " In the quickfix window, you can use:
 "   o    to open (same as enter)
