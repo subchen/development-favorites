@@ -312,7 +312,13 @@ nmap <silent> <leader>. <Plug>MarkSearchCurrentNext
 " ------------------------------------
 "   vim-markdown
 " ------------------------------------
-let g:markdown_fenced_languages = ['html', 'js', 'css', 'python', 'java', 'go', 'bash=sh']
+let g:markdown_fenced_languages = [
+    \ 'html', 'xml', 'css', 'sass',
+    \ 'javascript', 'js=javascript', 'json=javascript',
+    \ 'ruby', 'python',
+    \ 'java', 'go',
+    \ 'bash=sh', 'sh'
+    \ ]
 let g:markdown_syntax_conceal = 0
 let g:markdown_minlines = 100
 
