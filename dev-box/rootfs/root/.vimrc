@@ -1,20 +1,23 @@
-" vim: set sw=4 ts=4 sts=4 et tw=80 foldmarker={,} foldlevel=0 foldmethod=marker spell:
-"
+" vim: set sw=4 ts=4 sts=4 et tw=78 nofoldenable spell:
 
 " ===================================
-" General
+" Basic configuration
 " ===================================
+
+" General
 set nocompatible        " Must be first line
 set encoding=utf-8
 set fileencoding=utf-8
 set fileformat=unix
 set backspace=2         " Backspace deletes char in insert mode
 set history=3000
-set novisualbell             "don't beep
-set noerrorbells             "don't beep
+set novisualbell        " don't beep
+set noerrorbells        " don't beep
 
 syntax on
 filetype on
+filetype indent on
+filetype plugin on
 
 " Visual
 set t_Co=256            " Support 256 colors
@@ -38,8 +41,8 @@ set clipboard+=unnamed          " Yanks go on clipboard instead.
 set nowritebackup
 set nobackup
 
-set autoread    " auto load if file updated
-set autowrite   " auto save when :make
+set autoread        " auto load if file updated
+set autowrite       " auto save when :make
 
 " Match and search
 set hlsearch        " Highlight search
@@ -49,7 +52,9 @@ set smartcase       " Be sensitive when there's a capital letter
 
 " Formatting
 set nowrap
-set textwidth=0             " Don't wrap lines by default
+set textwidth=0     " Don't wrap lines by default
+set autoindent
+set smartindent
 
 set tabstop=4
 set softtabstop=4
@@ -57,7 +62,10 @@ set shiftwidth=4
 set expandtab       " Make tabs into spaces (set by tabstop)
 set smarttab
 
-set autoindent
+" Fold
+set nofoldenable
+set foldlevel=0
+set foldmethod=syntax
 
 " Highlight current line
 set cursorline
@@ -82,8 +90,11 @@ command! -bang Q q<bang>
 " :W sudo saves the file (useful for handling the permission-denied error)
 command! W w !sudo tee % > /dev/null
 
-command! Trimwhitespaces :FixWhitespace<CR>
-command! Unixformat      :set ff=unix<CR>
+command! Trimwhitespaces :FixWhitespace
+command! Unixformat      :set filetype=unix
+command! Tospaces        :set expandtab|retab
+command! Totabs          :set noexpandtab|retab!
+
 
 noremap <silent> <F12>e :e ~/.vimrc<CR>
 noremap <silent> <F12>r :source ~/.vimrc<CR>
@@ -107,8 +118,10 @@ noremap <silent> <C-N> :bn<CR>
 noremap <silent> <C-B> :bp<CR>
 
 " Code folding options
-noremap <silent> <leader>fo :set foldenable foldmethod=syntax<CR>
+noremap <silent> <leader>fo :set foldenable<CR>
 noremap <silent> <leader>fc :set nofoldenable<CR>
+noremap <silent> <leader>fs :set foldmethod=syntax<CR>
+noremap <silent> <leader>fi :set foldmethod=indent<CR>
 noremap <silent> <leader>f0 :set foldlevel=0<CR>
 noremap <silent> <leader>f1 :set foldlevel=1<CR>
 noremap <silent> <leader>f2 :set foldlevel=2<CR>
@@ -120,12 +133,23 @@ noremap <silent> <leader>f7 :set foldlevel=7<CR>
 noremap <silent> <leader>f8 :set foldlevel=8<CR>
 noremap <silent> <leader>f9 :set foldlevel=9<CR>
 
+" for vimdiff
+if &diff
+    noremap <silent> <leader>1 :diffget 1<CR> :diffupdate<CR>
+    noremap <silent> <leader>2 :diffget 2<CR> :diffupdate<CR>
+    noremap <silent> <leader>3 :diffget 3<CR> :diffupdate<CR>
+    noremap <silent> <leader>4 :diffget 4<CR> :diffupdate<CR>
+    noremap <silent> <space>   @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>    " Use <space> to switch fold
+endif
+
 " ------------------------------------
 " filetype detect
 " ------------------------------------
-" noexpandtab for special filetypes
-autocmd FileType makefile set ts=4 sw=4 noexpandtab
-
+" config for special filetypes
+autocmd FileType makefile set ts=4 sts=4 sw=4 noexpandtab
+autocmd FileType yaml     set ts=2 sts=2 sw=2
+autocmd FileType json     set ts=2 sts=2 sw=2
+autocmd FileType sh       set foldmethod=indent
 
 " ===================================
 " Bundle plugins (vundle)
@@ -155,7 +179,7 @@ Plugin 'elzr/vim-json'
 Plugin 'vim-scripts/jsbeautify'
 Plugin 'fatih/vim-go'
 Plugin 'ervandew/supertab'
-" Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
@@ -245,12 +269,12 @@ let g:tagbar_width = 30
 " ------------------------------------
 "   ack.vim
 " ------------------------------------
+cnoreabbrev Ack Ack!
 if executable('ag')
     let g:ack_prg = 'ag --vimgrep --smart-case'
     let g:ack_default_options = ''
 endif
 let g:ack_autoclose = 1
-cnoreabbrev Ack Ack!
 
 " Usage
 "   :Ack [options] {pattern} [{directory}]
@@ -331,7 +355,7 @@ let g:vim_json_syntax_conceal = 0
 command! Jsonformat :execute '%!python -m json.tool'
 
 " ------------------------------------
-"   jsbeautify
+"   vim-jsbeautify
 " ------------------------------------
 " :Jsformat, Jsbeautify
 command! Jsformat   :call g:Jsbeautify()<CR>
@@ -357,7 +381,7 @@ let g:SuperTabDefaultCompletionType = 'context'
 " ------------------------------------
 "   YouCompleteMe
 " ------------------------------------
-" Install: requires Vim 7.4.1578+
+" Install, requires Vim 7.4.1578+
 "   $ yum install -y install automake gcc gcc-c++ kernel-devel cmake make python-devel
 "   $ cd ~/.vim/bundle/YouCompleteMe
 "   $ ./install.py --all
