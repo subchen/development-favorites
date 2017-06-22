@@ -58,42 +58,42 @@
 
 - User Case:
 
-    ```
-    用户通过 10.123.10.99:11022 访问内网机器 192.168.1.11:22
+  ```
+  用户通过 10.123.10.99:11022 访问内网机器 192.168.1.11:22
 
-    $ ssh root@10.123.10.99 -p 11022
-    ```
+  $ ssh root@10.123.10.99 -p 11022
+  ```
 
 - Flow Figure:
 
-    ```
-            |
-            V
-     src: x.x.x.x:xx
-    dest: 10.123.10.99:11022
-            |
-            V
-    ---- eth0 (in) --------
-            |
-            | PREROUTING
-            |  (DNAT)
-            V
-     src: x.x.x.x:xx
-    dest: 192.168.1.11:22
-            |
-            | routing
-            V
-    ---- eth1 (out) -------
-            |
-            | POSTROUTING
-            |  (SNAT)
-            V
-     src: 192.168.1.99:xx
-    dest: 192.168.1.11:22
-            |
-            V
-    ---- Internal BOX ----
-    ```
+  ```
+          |
+          V
+   src: x.x.x.x:xx
+  dest: 10.123.10.99:11022
+          |
+          V
+  ---- eth0 (in) --------
+          |
+          | PREROUTING
+          |  (DNAT)
+          V
+   src: x.x.x.x:xx
+  dest: 192.168.1.11:22
+          |
+          | routing
+          V
+  ---- eth1 (out) -------
+          |
+          | POSTROUTING
+          |  (SNAT)
+          V
+   src: 192.168.1.99:xx
+  dest: 192.168.1.11:22
+          |
+          V
+  ---- Internal BOX ----
+  ```
 
 - Configure:
 
@@ -127,41 +127,41 @@
 
 - User Case:
 
-    ```
-    内网机器 192.168.1.0/24 通过网关 10.123.10.99 直接访问外网
-    ```
+  ```
+  内网机器 192.168.1.0/24 通过网关 10.123.10.99 直接访问外网
+  ```
 
 - Flow Figure:
 
-    ```
-    ---- InternalBox ----
-            |
-            V
-     src: 192.68.1.0/24:xx
-    dest: x.x.x.x:xx
-            |
-            V
-    ---- eth1 (in) --------
-            |
-            | routing
-            V
-    ---- eth0 (out) -------
-            |
-            | POSTROUTING
-            |  (SNAT)
-            V
-     src: 10.123.10.99:xx
-    dest: x.x.x.x:xx
-            |
-            V
-    ```
+  ```
+  ---- Internal BOX ----
+          |
+          V
+   src: 192.68.1.0/24:xx
+  dest: x.x.x.x:xx
+          |
+          V
+  ---- eth1 (in) --------
+          |
+          | routing
+          V
+  ---- eth0 (out) -------
+          |
+          | POSTROUTING
+          |  (SNAT)
+          V
+   src: 10.123.10.99:xx
+  dest: x.x.x.x:xx
+          |
+          V
+  ```
 
 - Configure:
 
   1. 在 GatewayBox 上配置
 
     ```
-    iptables -t nat -A POSTROUTING -p tcp -s 192.168.1.0/24 -o eth0 -j MASQUERADE
+    iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o eth0 -j MASQUERADE
     ```
 
   2. 在内网机器上设置默认 gateway 为 192.168.1.99
