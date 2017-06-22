@@ -95,7 +95,7 @@
     ---- Internal BOX ----
     ```
 
-- Configure:
+- Configure:
 
   - DNAT (任意方法均可)
     - iptables -t nat -A PREROUTING  -p tcp -i eth0 -d 10.123.10.99 --dport 11022 -j DNAT --to 192.168.1.11:22
@@ -118,17 +118,17 @@
     ```
 
   > 注意：
-  > 1. 其中 `-j MASQUERADE` 等价于 `-j SNAT --to 192.168.1.99`
+  > 1. 其中 `-j MASQUERADE` 等价于 `-j SNAT --to 192.168.1.99`
   > 2. `-j MASQUERADE` 会自动从服务器的网卡上，获取当前ip地址来做NAT
   > 3. 参考：http://www.cnblogs.com/Dicky-Zhang/p/5934657.html
 
 
-## 外网访问内网 (GATEWAY)
+## 外网访问内网 (直连，GATEWAY)
 
 - User Case:
 
     ```
-    用户机器通过网关 10.123.10.99 直接访问内网机器 192.168.1.0/24
+    用户机器通过网关 10.123.10.99 直接访问内网机器 192.168.1.0/24
     ```
 
 - Flow Figure:
@@ -155,7 +155,7 @@
             V
     ```
 
-- Configure:
+- Configure:
 
   1. 在 GatewayBox 上配置
 
@@ -174,7 +174,7 @@
     192.168.1.0     10.123.10.99    255.255.255.0   U     0      0        0 xxx
     ```
 
-## 内网访问外网 (GATEWAY)
+## 内网访问外网 (直连，GATEWAY)
 
 - User Case:
 
@@ -207,7 +207,7 @@
             V
     ```
 
-- Configure:
+- Configure:
 
   1. 在 GatewayBox 上配置
 
@@ -236,3 +236,15 @@
     192.168.1.0     0.0.0.0         255.255.255.0   U     0      0        0 eth0
     ```
 
+## MAC OS
+
+```
+# 显示路由
+netstat –nr
+
+# 添加网关
+route -n add -net 192.168.1.0/24 10.123.10.99
+
+# 删除网关
+route -n delete -net 192.168.1.0/24 10.123.10.99
+```
