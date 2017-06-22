@@ -31,7 +31,7 @@
     iptables -t nat -F
     
     # save rules
-    iptables-save
+    iptables-save > /etc/sysconfig/iptables
     ```
 
 ## Hosts Information
