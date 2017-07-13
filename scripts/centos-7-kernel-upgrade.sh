@@ -11,7 +11,7 @@ yum --enablerepo=elrepo-kernel install -y kernel-ml
 
 
 #
-# 默认内核启动：
+# 手动设置默认内核启动：
 #
 # 1. 首先找到新版内核的 menuentry 完整字符串.
 #     grep menuentry /boot/grub2/grub.cfg
@@ -21,3 +21,9 @@ yum --enablerepo=elrepo-kernel install -y kernel-ml
 #     grub2-editenv list
 # 4. 重启生效
 #
+
+# 
+# 自动设置默认内核启动：
+#
+kernel=$(rpm -ql kernel-ml | grep '^/boot/vmlinuz' | sort --version-sort | tail --lines=1)
+grubby --set-default=$kernel
