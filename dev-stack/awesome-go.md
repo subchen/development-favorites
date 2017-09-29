@@ -21,6 +21,9 @@
 - [yaml](https://github.com/go-yaml/yaml) - YAML support for the Go language.
 - [toml](https://github.com/BurntSushi/toml) - TOML configuration format (encoder/decoder with reflection).
 - [gojq](https://github.com/elgs/gojq) - JSON query in Golang.
+
+## XML
+
 - [go-xmldom](https://github.com/subchen/go-xmldom) - XML DOM processing for Golang, supports xpath query
 - [etree](https://github.com/beevik/etree) - parse and generate XML easily in go
 
