@@ -9,7 +9,7 @@ install brew-cask
 ======================
 
 ```bash
-brew install caskroom/cask/brew-cask
+brew tap caskroom/cask
 ```
 
 install others
