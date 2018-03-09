@@ -56,7 +56,7 @@
 
 ## Utilities
 
-- [gstack](https://github.com/subchen/gstack) - Some often-used Golang utilities.
+- [go-stack](https://github.com/subchen/go-stack) - Some often-used Golang utilities.
 - [go-dry](https://github.com/ungerik/go-dry) - DRY (don’t repeat yourself) package for Go.
 - [go-humanize](https://github.com/dustin/go-humanize) - Formatters for time, numbers, and memory size to human readable format.
 
