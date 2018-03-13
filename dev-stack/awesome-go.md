@@ -3,6 +3,8 @@
 ## Web Frameworks
 
 - [Echo](https://github.com/labstack/echo) - High performance, minimalist Go web framework.
+- [chi](https://github.com/go-chi/chi) - lightweight, idiomatic and composable router for building Go HTTP services
+- [go-swagger](https://github.com/go-swagger/go-swagger) - Swagger 2.0 implementation for go
 
 ## HTTP Router
 
