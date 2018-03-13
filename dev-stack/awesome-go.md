@@ -34,7 +34,7 @@
 
 ## Database
 
-- [mgo](https://godoc.org/labix.org/v2/mgo) - MongoDB driver for the Go language that implements a rich and well tested selection of features under a very simple API following standard Go idioms.
+- [mgo](https://github.com/globalsign/mgo) - MongoDB driver for the Go language that implements a rich and well tested selection of features under a very simple API following standard Go idioms.
 
 ## Data Structures
 
@@ -57,7 +57,6 @@
 ## Datetime
 
 - [dateparse](https://github.com/araddon/dateparse) - GoLang Parse any date string without knowing format in advance.
-- [now](https://github.com/araddon/dateparse) - GoLang Parse any date string without knowing format in advance.
 
 ## Utilities
 
