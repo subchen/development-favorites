@@ -93,6 +93,7 @@
 ## APIs/CLIs
 
 - [GitHub API](https://github.com/google/go-github) - Go library for accessing the GitHub API
+- [Github Release CLI](https://github.com/aktau/github-release) - Commandline app to create and edit releases on Github (and upload artifacts)
 - [JFrag/Bintray CLI](https://github.com/JFrogDev/jfrog-cli-go) - CLI for JFrag/Bintray
 
 ## References
