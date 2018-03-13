@@ -4,6 +4,12 @@
 
 - [Echo](https://github.com/labstack/echo) - High performance, minimalist Go web framework.
 
+## HTTP Router
+
+- [mux](https://github.com/gorilla/mux) - A powerful URL router and dispatcher for golang.
+- [httptreemux](https://github.com/dimfeld/httptreemux) - High-speed, flexible tree-based HTTP router for Go.
+- [httprouter](https://github.com/julienschmidt/httprouter) - A high performance HTTP request router that scales well
+
 ## Command Line
 
 - [go-cli](https://github.com/subchen/go-cli) -  A full-featured and easy to use command-line package
@@ -15,6 +21,7 @@
 
 - [chalk](https://github.com/ttacon/chalk) - Intuitive package for prettifying terminal/console output.
 - [go-isatty](https://github.com/mattn/go-isatty) - isatty for golang.
+- [go-tableify](https://github.com/subchen/go-tableify) - Pretty console printing of tabular data
 
 ## Configuration
 
@@ -31,6 +38,7 @@
 
 - [osin](https://github.com/RangelReale/osin) - Golang OAuth2 server library
 - [jwt-go](https://github.com/dgrijalva/jwt-go) - Golang implementation of JSON Web Tokens (JWT).
+- [base64Captcha](https://github.com/mojocn/base64Captcha) - golang base64-captcha supports digits, numbers,alphabet, arithmetic, audio and digit-alphabet captcha
 
 ## Database
 
@@ -44,6 +52,7 @@
 ## Goroutines
 
 - [threads](https://github.com/wushilin/threads) - A thread pool like java
+- [grmon](https://github.com/bcicen/grmon) - Command line monitoring for goroutines
 
 ## Logging
 
@@ -52,7 +61,8 @@
 ## Files
 
 - [afero](https://github.com/spf13/afero) - A FileSystem Abstraction System for Go.
-- [doublestar](https://github.com/bmatcuk/doublestar) - Implements support for double star (**) matches in golang's path.Match and filepatch.Glob.
+- [doublestar](https://github.com/bmatcuk/doublestar) - Implements support for double star (\*\*) matches in golang's path.Match and filepatch.Glob.
+- [fsnotify](https://github.com/fsnotify/fsnotify) - Cross-platform file system notifications for Go
 
 ## Datetime
 
@@ -73,11 +83,17 @@
 
 - [goconvey](github.com/smartystreets/goconvey) - Go testing in the browser. Integrates with `go test`. Write behavioral tests in Go
 - [gomock](https://github.com/golang/mock) - Mocking framework for the Go programming language.
+- [gotests](https://github.com/cweill/gotests) - Generate Go tests from your source code.
 
 ## Go Tools
 
 - [glide](https://github.com/Masterminds/glide) - Manage your golang vendor and vendored packages with ease. Inspired by tools like Maven, Bundler, and Pip.
 - [dep](https://github.com/golang/dep) - Go dependency tool.
+
+## APIs/CLIs
+
+- [GitHub API](https://github.com/google/go-github) - Go library for accessing the GitHub API
+- [JFrag/Bintray CLI](https://github.com/JFrogDev/jfrog-cli-go) - CLI for JFrag/Bintray
 
 ## References
 
